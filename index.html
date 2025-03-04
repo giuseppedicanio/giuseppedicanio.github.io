@@ -45,6 +45,59 @@
             object-fit: cover;
             filter: brightness(50%);
         }
+        .image-container .overlay-text {
+            position: absolute;
+            font-size: 24px;
+            color: #fff;
+            font-weight: bold;
+            text-decoration: none;
+        }
+        .image-container .overlay-text:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">Giuseppe Dicanio</div>
+    <div class="images">
+        <div class="image-container">
+            <img src="Screenshot 2025-03-04 162706.png" alt="Image 1">
+            <a href="About.html" class="overlay-text">About</a>
+        </div>
+        <div class="image-container">
+            <img src="Screenshot 2025-03-04 161629.png" alt="Image 2">
+            <a href="Work.html" class="overlay-text">Work</a>
+        </div>
+        <div class="image-container">
+            <img src="Screenshot 2025-03-04 161415.png" alt="Image 3">
+            <a href="CV.html" class="overlay-text">CV</a>
+        </div>
+        <div class="image-container">
+            <img src="image4.jpg" alt="Image 4">
+            <a href="Contact.html" class="overlay-text">Contact</a>
+        </div>
+    </div>
+</body>
+</html>
+
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+        .image-container {
+            position: relative;
+            width: 100%;
+            height: 20vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .image-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            filter: brightness(50%);
+        }
         .menu {
             position: absolute;
             top: 50%;
