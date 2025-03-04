@@ -1,3 +1,1 @@
 # giuseppedicanio.github.io
-
-ciao
