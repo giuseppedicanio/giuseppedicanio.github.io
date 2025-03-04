@@ -11,29 +11,52 @@
             padding: 0;
             background-color: #000;
             color: #fff;
-            text-align: center;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            height: 100vh;
         }
-        a {
-            display: block;
-            margin: 10px 0;
+        .header {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            font-size: 20px;
+        }
+        .menu {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            gap: 100px;
+        }
+        .menu a {
             font-size: 24px;
             color: #fff;
             text-decoration: none;
         }
-        a:hover {
+        .menu a:hover {
             text-decoration: underline;
+        }
+        .images {
+            display: flex;
+            width: 100%;
+        }
+        .images img {
+            width: 25%;
+            height: 200px;
+            object-fit: cover;
         }
     </style>
 </head>
 <body>
-    <h1>Giuseppe Dicanio</h1>
-    <a href="About.html">About</a>
-    <a href="Work.html">Work</a>
-    <a href="CV.html">CV</a>
-    <a href="Contact.html">Contact</a>
+    <div class="header">Giuseppe Dicanio</div>
+    <div class="menu">
+        <a href="About.html">About</a>
+        <a href="Work.html">Work</a>
+        <a href="CV.html">CV</a>
+        <a href="Contact.html">Contact</a>
+    </div>
+    <div class="images">
+        <img src="image1.jpg" alt="Image 1">
+        <img src="image2.jpg" alt="Image 2">
+        <img src="image3.jpg" alt="Image 3">
+        <img src="image4.jpg" alt="Image 4">
+    </div>
 </body>
 </html>
