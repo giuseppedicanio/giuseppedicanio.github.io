@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!DOCTYPE html> 
 <html lang="it">
 <head>
     <meta charset="UTF-8">
@@ -18,6 +18,7 @@
             top: 20px;
             left: 20px;
             font-size: 20px;
+            z-index: 10;
         }
         .menu {
             position: absolute;
@@ -26,6 +27,7 @@
             display: flex;
             flex-direction: column;
             gap: 30px;
+            z-index: 10;
         }
         .menu a {
             font-size: 24px;
@@ -44,13 +46,25 @@
             display: flex;
             flex-direction: column;
         }
-        .images img {
+        .image-container {
+            position: relative;
             width: 100%;
-            height: 25vh;
+            height: 20vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .image-container img {
+            width: 100%;
+            height: 100%;
             object-fit: cover;
-            margin: 0;
-            padding: 0;
-            border: none;
+            filter: brightness(50%);
+        }
+        .image-text {
+            position: absolute;
+            font-size: 24px;
+            color: white;
+            font-weight: bold;
         }
     </style>
 </head>
@@ -63,10 +77,22 @@
         <a href="Contact.html">Contact</a>
     </div>
     <div class="images">
-        <img src="Screenshot 2025-03-04 162706.png" alt="Image 1">
-        <img src="Screenshot 2025-03-04 161629.png" alt="Image 2">
-        <img src="Screenshot 2025-03-04 161415.png" alt="Image 3">
-        <img src="image4.jpg" alt="Image 4">
+        <div class="image-container">
+            <img src="Screenshot 2025-03-04 162706.png" alt="Image 1">
+            <div class="image-text">Titolo 1</div>
+        </div>
+        <div class="image-container">
+            <img src="Screenshot 2025-03-04 161629.png" alt="Image 2">
+            <div class="image-text">Titolo 2</div>
+        </div>
+        <div class="image-container">
+            <img src="Screenshot 2025-03-04 161415.png" alt="Image 3">
+            <div class="image-text">Titolo 3</div>
+        </div>
+        <div class="image-container">
+            <img src="image4.jpg" alt="Image 4">
+            <div class="image-text">Titolo 4</div>
+        </div>
     </div>
 </body>
 </html>
