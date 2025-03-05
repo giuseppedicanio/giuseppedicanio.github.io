@@ -20,7 +20,7 @@
         }
         .header {
             position: absolute;
-            top: 20px; /* Riportato alla posizione originale */
+            top: 20px;
             left: 20px;
             font-size: 21px;
             z-index: 10;
@@ -30,12 +30,12 @@
             height: 100vh;
             display: flex;
             flex-direction: column;
-            margin-top: 125px; /* Spostato tutto più in basso */
+            margin-top: 125px;
         }
         .image-container {
             position: relative;
             width: 100%;
-            height: 15vh;
+            height: 12vh; /* Ridotto rispetto a prima */
             display: flex;
             align-items: center;
             justify-content: center;
@@ -53,9 +53,6 @@
             text-decoration: none;
             font-weight: normal;
             font-style: italic;
-        }
-        .image-container .overlay-text[href="Contact.html"] {
-            font-style: normal;
         }
         .image-container .overlay-text:hover {
             text-decoration: underline;
@@ -77,20 +74,16 @@
             <img src="Screenshot 2025-03-04 161629.png" alt="Image 3">
             <a href="CV.html" class="overlay-text">CV</a>
         </div>
-        <div class="image-container">
-            <img src="image4.jpg" alt="Image 4">
-            <a href="Contact.html" class="overlay-text">Contact</a>
-        </div>
     </div>
 </body>
-        <footer>
-            <div style="display: flex; justify-content: center; gap: 20px; padding: 20px;">
-                <a href="https://www.instagram.com/giusedde/" target="_blank">
-                    <img src="insta.png" alt="Instagram" style="width: 30px; height: 30px;">
-                </a>
-                <a href="mailto:giusedicanio@gmail.com">
-                    <img src="mail.png" alt="Email" style="width: 30px; height: 30px;">
-                </a>
-            </div>
-        </footer>
+<footer>
+    <div style="display: flex; justify-content: center; gap: 20px; padding: 20px;">
+        <a href="https://www.instagram.com/giusedde/" target="_blank">
+            <img src="instagram-icon.png" alt="Instagram" style="width: 30px; height: 30px;">
+        </a>
+        <a href="mailto:giusedicanio@gmail.com">
+            <img src="email-icon.png" alt="Email" style="width: 30px; height: 30px;">
+        </a>
+    </div>
+</footer>
 </html>
