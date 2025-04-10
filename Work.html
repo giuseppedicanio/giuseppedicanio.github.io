@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Work - Giuseppe Dicanio</title>
+    <title>Works - Giuseppe Dicanio</title>
     <style>
         body {
             margin: 0;
@@ -11,7 +11,6 @@
             background-color: #000;
             color: #fff;
             font-family: Arial, sans-serif;
-            position: relative;
         }
         .header {
             position: absolute;
@@ -27,11 +26,31 @@
         .header a:hover {
             text-decoration: underline;
         }
+        .gallery {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding-top: 100px;
+            gap: 40px; /* spazio tra le immagini */
+        }
+        .gallery img {
+            width: 90vw;
+            max-width: 800px;
+            height: auto;
+            object-fit: cover;
+            filter: brightness(100%);
+        }
     </style>
 </head>
 <body>
     <div class="header">
         <a href="index.html">Giuseppe Dicanio</a>
+    </div>
+    <div class="gallery">
+        <!-- Inserisci qui le immagini dei tuoi lavori -->
+        <img src="Screenshot 2025-03-04 162706.png" alt="Opera 1">
+        <img src="Screenshot 2025-03-04 161415.png" alt="Opera 2">
+        <!-- Puoi aggiungere altre immagini qui -->
     </div>
 </body>
 </html>
