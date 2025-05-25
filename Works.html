@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="it">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Works - Giuseppe Dicanio</title>
   <style>
     body {
@@ -99,157 +99,55 @@
       width: 100vw;
       max-width: 800px;
     }
-
-    /* Nuova scritta photo documentation */
-    #openPopup {
-      position: fixed;
-      top: 20px;
-      right: 20px;
-      font-size: 14px;
-      color: #00f; /* blu */
-      cursor: pointer;
-      font-family: Arial, sans-serif;
-      text-transform: lowercase;
-      text-decoration: underline;
-      z-index: 20;
-    }
-
-    /* Popup overlay */
-    .popup-overlay {
-      display: none;
-      position: fixed;
-      top: 0; left: 0;
-      width: 100vw; height: 100vh;
-      background: rgba(0,0,0,0.8);
-      backdrop-filter: blur(5px);
-      z-index: 100;
-      overflow-y: auto;
-      -webkit-overflow-scrolling: touch;
-    }
-
-    /* Popup content */
-    .popup-content {
-      position: relative;
-      max-width: 60vw;
-      max-height: 70vh;
-      margin: 50px auto;
-      background: transparent;
-      padding: 20px;
-      box-sizing: border-box;
-      color: #eee;
-      overflow-y: auto;
-    }
-
-    /* Close button */
-    .popup-close {
-      position: absolute;
-      top: 10px;
-      right: 15px;
-      font-size: 28px;
-      font-weight: bold;
-      color: #fff;
-      cursor: pointer;
-    }
-
-    /* Immagini nel popup */
-    .popup-content img {
-      max-width: 100%;
-      margin-bottom: 20px;
-      display: block;
-      border-radius: 4px;
-    }
   </style>
 </head>
 <body>
   <div class="header">
     <a href="index.html">Giuseppe Dicanio</a>
   </div>
-
-  <!-- Scritta blu per aprire popup -->
-  <div id="openPopup">photo documentation</div>
-
   <div class="gallery">
-    <img src="9.JPG" alt="senza titolo" />
+    <img src="9.JPG" alt="senza titolo">
     <div class="caption">senza titolo, 2025</div>
     
     <a href="https://youtu.be/5IL9tJSOnSc" target="_blank" class="video-container">
-      <img src="8.png" alt="Video Teaser 4" />
+      <img src="8.png" alt="Video Teaser 4">
       <div class="video-overlay">
         <span>▶</span>
       </div>
-    </a>
-    <div class="caption">I float without water, 2025, 39”</div>
+    </a><div class="caption">I float without water, 2025, 39”</div>
 
     <a href="https://youtu.be/_ZTyGKq80TI" target="_blank" class="video-container">
-      <img src="7.png" alt="Video Teaser 3" />
+      <img src="7.png" alt="Video Teaser 3">
       <div class="video-overlay">
         <span>▶</span>
       </div>
-    </a>
-    <div class="caption">36, 2025, 1’17”</div>
+    </a><div class="caption">36, 2025, 1’17”</div>
     
     <a href="https://youtu.be/vLyd9QyBJ7M" target="_blank" class="video-container">
-      <img src="6.png" alt="Video Teaser 2" />
+      <img src="6.png" alt="Video Teaser 2">
       <div class="video-overlay">
         <span>▶</span>
       </div>
-    </a>
-    <div class="caption">staring at, 2025, 24’50”</div>
+    </a><div class="caption">staring at, 2025, 24’50”</div>
 
     <a href="https://youtu.be/UeiLKnKhzFM" target="_blank" class="video-container">
-      <img src="5.png" alt="Video Teaser 1" />
+      <img src="5.png" alt="Video Teaser 1">
       <div class="video-overlay">
         <span>▶</span>
       </div>
-    </a>
-    <div class="caption">/, 2025, 8’00”</div>
+    </a><div class="caption">/, 2025, 8’00”</div>
 
-    <img src="4.jpg" alt="circuito 1" />
+    <img src="4.jpg" alt="circuito 1">
     <div class="caption">circuito 1, 2025, 74x60x27 cm</div>
 
-    <img src="3.jpg" alt="circuito 2" />
+    <img src="3.jpg" alt="circuito 2">
     <div class="caption">circuito 2, 2025, 140x60x27 cm</div>
 
-    <img src="2.jpg" alt="senza titolo" />
+    <img src="2.jpg" alt="senza titolo">
     <div class="caption">senza titolo, 2025</div>
 
-    <img src="1.jpg" alt="stendardo" />
+    <img src="1.jpg" alt="stendardo">
     <div class="caption">stendardo, 2025, 225x150 cm</div>
   </div>
-
-  <!-- Popup -->
-  <div class="popup-overlay" id="popup">
-    <div class="popup-content">
-      <div class="popup-close" id="closePopup">&times;</div>
-      <!-- Sostituisci con le tue immagini -->
-      <img src="p3.JPG" alt="photo" />
-      <img src="p2.JPG" alt="photo" />
-      <img src="p1.JPG" alt="photo" />
-    </div>
-  </div>
-
-  <script>
-    const openBtn = document.getElementById('openPopup');
-    const closeBtn = document.getElementById('closePopup');
-    const popup = document.getElementById('popup');
-
-    openBtn.addEventListener('click', () => {
-      popup.style.display = 'block';
-      document.body.style.overflow = 'hidden'; // blocca scroll body
-    });
-
-    closeBtn.addEventListener('click', () => {
-      popup.style.display = 'none';
-      document.body.style.overflow = 'auto'; // riattiva scroll body
-    });
-
-    // Chiudi popup cliccando fuori dal contenuto
-    popup.addEventListener('click', (e) => {
-      if (e.target === popup) {
-        popup.style.display = 'none';
-        document.body.style.overflow = 'auto';
-      }
-    });
-  </script>
 </body>
 </html>
