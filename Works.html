@@ -99,74 +99,16 @@
       width: 100vw;
       max-width: 800px;
     }
-
-    /* Popup specific styles */
-    .popup {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100vw;
-      height: 100vh;
-      background-color: rgba(0, 0, 0, 0.8);
-      display: none;
-      justify-content: center;
-      align-items: center;
-      z-index: 1000;
-    }
-
-    .popup-content {
-      background: none;
-      border: none;
-      padding: 0;
-      box-shadow: none;
-    }
-
-    .popup-content img {
-      max-width: 90vw;
-      max-height: 90vh;
-      display: block;
-    }
-
-    .close-btn {
-      position: absolute;
-      top: 20px;
-      right: 30px;
-      font-size: 30px;
-      color: white;
-      cursor: pointer;
-    }
-
-    .photo-doc-link {
-      font-size: 12px;
-      color: blue;
-      position: fixed;
-      bottom: 20px;
-      right: 20px;
-      text-decoration: none;
-      z-index: 1001;
-    }
   </style>
 </head>
 <body>
   <div class="header">
     <a href="index.html">Giuseppe Dicanio</a>
   </div>
-  <a class="photo-doc-link" href="#" onclick="openPopup('photo-documentation.jpg')">photo documentation</a>
-  <div class="popup" id="popup">
-    <span class="close-btn" onclick="closePopup()">&times;</span>
-    <div class="popup-content">
-      <img id="popup-image" src="p3.JPG" alt="photo documentation">
-      <img id="popup-image" src="p2.JPG" alt="photo documentation">
-      <img id="popup-image" src="p1.JPG" alt="photo documentation">
-    </div>
-  </div>
-  <div class="gallery">
-    <img src="10.1.JPG" alt="senza titolo">
-    <div class="caption">senza titolo, 2025, A3</div>
-
+  <div class="gallery">    
     <img src="9.JPG" alt="senza titolo">
     <div class="caption">senza titolo, 2025</div>
-
+    
     <a href="https://youtu.be/5IL9tJSOnSc" target="_blank" class="video-container">
       <img src="8.png" alt="Video Teaser 4">
       <div class="video-overlay">
@@ -180,7 +122,7 @@
         <span>▶</span>
       </div>
     </a><div class="caption">36, 2025, 1’17”</div>
-
+    
     <a href="https://youtu.be/vLyd9QyBJ7M" target="_blank" class="video-container">
       <img src="6.png" alt="Video Teaser 2">
       <div class="video-overlay">
@@ -207,16 +149,5 @@
     <img src="1.jpg" alt="stendardo">
     <div class="caption">stendardo, 2025, 225x150 cm</div>
   </div>
-
-  <script>
-    function openPopup(imageSrc) {
-      document.getElementById('popup').style.display = 'flex';
-      document.getElementById('popup-image').src = imageSrc;
-    }
-
-    function closePopup() {
-      document.getElementById('popup').style.display = 'none';
-    }
-  </script>
 </body>
 </html>
