@@ -5,12 +5,40 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Works - Giuseppe Dicanio</title>
   <style>
-    body {
+    body, html {
       margin: 0;
       padding: 0;
-      background-color: #00FF00; /* green screen */
-      color: #000; /* testo nero per contrasto */
+      height: 100%;
       font-family: Arial, sans-serif;
+      color: #eaeaea;
+      overflow-x: hidden;
+      position: relative;
+    }
+
+    /* SFONDO IN MOVIMENTO */
+    .animated-bg {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 200%;
+      height: 200%;
+      background: radial-gradient(circle at center, #001100, #000000);
+      background-size: 400% 400%;
+      animation: moveBackground 60s linear infinite;
+      z-index: -1;
+      filter: blur(100px) contrast(1.2);
+    }
+
+    @keyframes moveBackground {
+      0% {
+        transform: translate(0%, 0%);
+      }
+      50% {
+        transform: translate(-25%, -25%);
+      }
+      100% {
+        transform: translate(0%, 0%);
+      }
     }
 
     .header {
@@ -22,11 +50,12 @@
     }
 
     .header a {
-      color: black;
+      color: #39ff14;
       text-decoration: none;
     }
 
     .header a:hover {
+      color: #ff0080;
       text-decoration: underline;
     }
 
@@ -45,6 +74,7 @@
       height: auto;
       object-fit: cover;
       filter: brightness(100%);
+      border: 1px solid #333344;
     }
 
     .video-container {
@@ -61,8 +91,8 @@
     }
 
     .video-container:hover img {
-      filter: brightness(70%);
-      transform: scale(1.01);
+      filter: brightness(60%) contrast(120%);
+      transform: scale(1.02);
     }
 
     .video-overlay {
@@ -76,6 +106,7 @@
       justify-content: center;
       opacity: 0;
       transition: opacity 0.3s ease;
+      background-color: rgba(255, 0, 128, 0.1);
     }
 
     .video-container:hover .video-overlay {
@@ -83,9 +114,10 @@
     }
 
     .video-overlay span {
-      color: black;
+      color: #39ff14;
       font-size: 40px;
       font-weight: bold;
+      text-shadow: 0 0 10px #39ff14;
     }
 
     .caption {
@@ -93,18 +125,20 @@
       margin-bottom: 30px;
       font-size: 15px;
       text-align: left;
-      color: #111;
+      color: #8888aa;
       font-style: italic;
-      font-family: Arial, sans-serif;
       width: 100vw;
       max-width: 800px;
     }
   </style>
 </head>
 <body>
+  <div class="animated-bg"></div>
+
   <div class="header">
     <a href="index.html">Giuseppe Dicanio</a>
   </div>
+
   <div class="gallery">
     <img src="w/12.JPG" alt="">
     <div class="caption">untitled, 2025, paper, site-specific</div>
