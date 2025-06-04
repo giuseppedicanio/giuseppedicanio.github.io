@@ -30,22 +30,18 @@
       right: 20px;
       display: flex;
       justify-content: space-between;
+      align-items: center;
       font-size: 36px;
       z-index: 10;
-    }
-
-    .header-name {
-      display: flex;
-      justify-content: space-between;
-      width: 100%;
     }
 
     .gallery {
       display: flex;
       flex-direction: column;
       align-items: center;
-      padding: 100px 0;
+      padding-top: 120px;
     }
+
     .gallery img,
     .video-container img {
       width: 100vw;
@@ -53,6 +49,7 @@
       height: auto;
       object-fit: cover;
     }
+
     .video-container {
       position: relative;
       width: 100vw;
@@ -60,13 +57,16 @@
       overflow: hidden;
       display: block;
     }
+
     .video-container img {
       transition: filter 0.3s, transform 0.3s;
     }
+
     .video-container:hover img {
       filter: brightness(70%);
       transform: scale(1.01);
     }
+
     .video-overlay {
       position: absolute;
       top: 0; left: 0;
@@ -77,18 +77,21 @@
       opacity: 0;
       transition: opacity 0.3s;
     }
+
     .video-container:hover .video-overlay {
       opacity: 1;
     }
+
     .video-overlay span {
       color: #fff;
       font-size: 40px;
       font-weight: bold;
     }
+
     .caption {
       margin: 5px 0 30px 0;
       font-size: 15px;
-      text-align: left;
+      text-align: center;
       color: #000;
       font-style: italic;
       width: 100vw;
@@ -100,7 +103,8 @@
   <div class="header">
     <a href="index.html">Giuseppe</a>
     <a href="index.html">Dicanio</a>
-    
+  </div>
+
   <div class="gallery">
     <img src="w/12.JPG" alt="">
     <div class="caption">untitled, 2025, paper, site-specific</div>
