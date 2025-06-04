@@ -13,11 +13,10 @@
             font-family: Arial, sans-serif;
         }
         .header {
-            position: absolute;
+            position: fixed;
             top: 20px;
             left: 20px;
-            font-size: 21px;
-            z-index: 10;
+            right: 20px;
         }
         .header a {
             color: white;
