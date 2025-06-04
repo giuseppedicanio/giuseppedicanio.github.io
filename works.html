@@ -34,6 +34,12 @@
       z-index: 10;
     }
 
+    .header-name {
+      display: flex;
+      justify-content: space-between;
+      width: 100%;
+    }
+
     .gallery {
       display: flex;
       flex-direction: column;
@@ -92,7 +98,10 @@
 </head>
 <body>
   <div class="header">
-    <a href="index.html">Giuseppe Dicanio</a>
+    <div class="header-name">
+      <span style="text-align:left;">Giuseppe</span>
+      <span style="text-align:right;">Dicanio</span>
+    </div>
   </div>
   <div class="gallery">
     <img src="w/12.JPG" alt="">
