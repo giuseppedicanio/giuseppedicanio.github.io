@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CV - Giuseppe Dicanio</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: #000;
+            color: #fff;
+            font-family: Arial, sans-serif;
+        }
+        .header {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            font-size: 21px;
+            z-index: 10;
+        }
+        .header a {
+            color: white;
+            text-decoration: none;
+        }
+        .header a:hover {
+            text-decoration: underline;
+        }
+        .content {
+            width: 80vw;
+            margin: 120px auto 40px auto; /* Distanza dal top per evitare sovrapposizione */
+            text-align: justify;
+            line-height: 1.5;
+        }
+        .image-container {
+            width: 100vw;
+            height: 12vh;
+            display: flex;
+        }
+        .image-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            filter: brightness(50%);
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <a href="index.html">Giuseppe Dicanio</a>
+    </div>
+
+    <div class="content">
+        <p>At the core of my practice is an investigation into the relationship between individual elements and human perception, engaging with the dynamics of vision and interpretation. Everyday presences, objects, and diverse materials are recontextualized, altering their function and form while forging unexpected connections among themselves and with their surroundings. The work evokes visual and sensory tensions that arise from the friction between dissonant elements, the juxtaposition of objects, and the ambiguity between the familiar and the uncanny.
+​</p>
+    </div>
+
+    <div class="image-container">
+        <img src="i/Screenshot 2025-03-04 162706.png" alt="Image 1">
+    </div>
+</body>
+</html>
