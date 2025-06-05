@@ -23,7 +23,7 @@
       cursor: pointer;
     }
 
-    #work:hover {
+    #works:hover {
       color: hotpink;
     }
     #about:hover {
@@ -129,9 +129,9 @@
       el.style.top = `${y}px`;
     }
 
-    ['work', 'about', 'cv'].forEach(placeRandomly);
+    ['works', 'about', 'cv'].forEach(placeRandomly);
     window.addEventListener('resize', () => {
-      ['work', 'about', 'cv'].forEach(placeRandomly);
+      ['works', 'about', 'cv'].forEach(placeRandomly);
     });
   </script>
 </body>
