@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="it">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>works - Giuseppe Dicanio</title>
   <style>
     body {
@@ -14,7 +14,7 @@
     }
 
     a {
-      color: #000;
+      color: inherit;
       text-decoration: none;
       transition: color 0.2s ease;
     }
@@ -24,24 +24,22 @@
     }
 
     .header {
-      position: absolute;
+      position: fixed;
       top: 20px;
       left: 20px;
       right: 20px;
       display: flex;
       justify-content: space-between;
-      align-items: center;
       font-size: 36px;
       z-index: 10;
     }
 
     .gallery {
-      position: absolute;
-      top: 0px;
-      display: grid;
+      display: flex;
       flex-direction: column;
-      place-items: center;
-      padding-top: 120px;
+      align-items: center;
+      padding-top: 100px;
+      padding-bottom: 40px;
     }
 
     .gallery img,
@@ -71,8 +69,12 @@
 
     .video-overlay {
       position: absolute;
-      width: 100%; height: 100%;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
       display: flex;
+      align-items: center;
       justify-content: center;
       opacity: 0;
       transition: opacity 0.3s;
@@ -97,6 +99,19 @@
       width: 100%;
       max-width: 800px;
     }
+
+    @media (max-width: 600px) {
+      .header {
+        font-size: 28px;
+      }
+      .video-overlay span {
+        font-size: 30px;
+      }
+      .caption {
+        font-size: 14px;
+        padding: 0 10px;
+      }
+    }
   </style>
 </head>
 <body>
@@ -111,38 +126,41 @@
       <div class="video-overlay"><span>▶</span></div>
     </a>
     <div class="caption">untitled, 2025, 1’46”</div>
+
     <img src="w/12.JPG" alt="">
     <div class="caption">untitled, 2025, paper, site-specific</div>
+
     <img src="w/11.jpg" alt="">
     <div class="caption">stool, 2025, acrylic print on A3 sheet</div>
+
     <img src="w/10.JPG" alt="">
     <div class="caption">untitled, 2025</div>
 
-    <a href="https://youtu.be/obWpNWp9vOg" target="_blank" class="video-container">
+    <a href="https://youtu.be/obWpNWp9vOg" class="video-container" target="_blank">
       <img src="w/9.png" alt="">
       <div class="video-overlay"><span>▶</span></div>
     </a>
     <div class="caption">trying to bring my friend back from hell, 2025, 0’15”</div>
 
-    <a href="https://youtu.be/5IL9tJSOnSc" target="_blank" class="video-container">
+    <a href="https://youtu.be/5IL9tJSOnSc" class="video-container" target="_blank">
       <img src="w/8.png" alt="">
       <div class="video-overlay"><span>▶</span></div>
     </a>
     <div class="caption">I float without water, 2025, 39”</div>
 
-    <a href="https://youtu.be/_ZTyGKq80TI" target="_blank" class="video-container">
+    <a href="https://youtu.be/_ZTyGKq80TI" class="video-container" target="_blank">
       <img src="w/7.png" alt="">
       <div class="video-overlay"><span>▶</span></div>
     </a>
     <div class="caption">36, 2025, 1’17”</div>
 
-    <a href="https://youtu.be/vLyd9QyBJ7M" target="_blank" class="video-container">
+    <a href="https://youtu.be/vLyd9QyBJ7M" class="video-container" target="_blank">
       <img src="w/6.png" alt="">
       <div class="video-overlay"><span>▶</span></div>
     </a>
     <div class="caption">staring at, 2025, 24’50”</div>
 
-    <a href="https://youtu.be/UeiLKnKhzFM" target="_blank" class="video-container">
+    <a href="https://youtu.be/UeiLKnKhzFM" class="video-container" target="_blank">
       <img src="w/5.png" alt="">
       <div class="video-overlay"><span>▶</span></div>
     </a>
@@ -150,8 +168,10 @@
 
     <img src="w/4.jpg" alt="">
     <div class="caption">circuit 2, 2025, 140x60x27 cm</div>
+
     <img src="w/3.jpg" alt="">
     <div class="caption">circuit 1, 2025, 174x60x27 cm</div>
+
     <img src="w/1.jpg" alt="">
     <div class="caption">banner, 2025, 225x150 cm</div>
   </div>
