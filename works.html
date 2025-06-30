@@ -5,6 +5,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>works - Giuseppe Dicanio</title>
   <style>
+    * {
+      box-sizing: border-box;
+    }
+
     body {
       overflow-x: hidden;
       margin: 0;
@@ -25,7 +29,7 @@
     }
 
     .header {
-      position: absolute;
+      position: fixed;
       top: 20px;
       left: 20px;
       right: 20px;
@@ -33,6 +37,7 @@
       justify-content: space-between;
       font-size: 36px;
       z-index: 10;
+      background: white;
     }
 
     .gallery {
@@ -46,6 +51,7 @@
     .gallery img,
     .video-container img {
       width: 100%;
+      max-width: 800px;
       height: auto;
       object-fit: cover;
     }
@@ -53,6 +59,7 @@
     .video-container {
       position: relative;
       width: 100%;
+      max-width: 800px;
       overflow: hidden;
       display: block;
     }
@@ -96,8 +103,10 @@
       color: #000;
       font-style: italic;
       width: 100%;
+      max-width: 800px;
+      padding: 0 10px;
     }
-    
+
     @media (max-width: 600px) {
       .header {
         font-size: 28px;
@@ -107,7 +116,6 @@
       }
       .caption {
         font-size: 14px;
-        padding: 0 10px;
       }
     }
   </style>
@@ -119,7 +127,7 @@
   </div>
 
   <div class="gallery">
-    <a href="https://youtu.be/8ysRDrERTNQ" class="video-container">
+    <a href="https://youtu.be/8ysRDrERTNQ" class="video-container" target="_blank">
       <img src="w/13.png" alt="">
       <div class="video-overlay"><span>▶</span></div>
     </a>
