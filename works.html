@@ -29,22 +29,18 @@
     }
 
     .header {
-      position: fixed;
-      top: 20px;
-      left: 20px;
-      right: 20px;
+      width: 100%;
+      padding: 20px;
       display: flex;
       justify-content: space-between;
       font-size: 36px;
       z-index: 10;
-      background: white;
     }
 
     .gallery {
       display: flex;
       flex-direction: column;
       align-items: center;
-      padding-top: 120px;
       padding-bottom: 40px;
     }
 
@@ -121,12 +117,12 @@
   </style>
 </head>
 <body>
-  <div class="header">
-    <a href="index.html">Giuseppe</a>
-    <a href="index.html">Dicanio</a>
-  </div>
-
   <div class="gallery">
+    <div class="header">
+      <a href="index.html">Giuseppe</a>
+      <a href="index.html">Dicanio</a>
+    </div>
+
     <a href="https://youtu.be/8ysRDrERTNQ" class="video-container" target="_blank">
       <img src="w/13.png" alt="">
       <div class="video-overlay"><span>▶</span></div>
