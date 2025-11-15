@@ -11,79 +11,57 @@
       background: #fff;
       color: #000;
       font-family: sans-serif;
-      height: 100vh;
-      overflow: hidden;
       display: flex;
       flex-direction: column;
+      min-height: 100vh;
       justify-content: center;
-    }
-
-    span, a {
-      color: #000;
-      text-decoration: none;
-      font-weight: normal;
+      align-items: flex-start;
+      padding-left: 20px;
     }
 
     a {
-      cursor: pointer;
-      transition: color 0.2s ease, text-decoration 0.2s ease;
+      color: black;
+      text-decoration: none;
+      font-size: 14px;
+      transition: color 0.2s, text-decoration 0.2s;
     }
 
-    a:hover {
+    /* link interni blu con sottolineatura al passaggio */
+    a[href$=".html"]:hover {
       color: blue;
       text-decoration: underline;
     }
 
     .header {
-      position: fixed;
-      top: 20px;
-      left: 20px;
-      font-size: 22px;
-      z-index: 10;
-    }
-
-    .center-links {
-      display: flex;
-      flex-direction: column;
-      gap: 60px;
-      margin-left: 20px;
-      margin-top: 120px;
-      margin-bottom: 140px;
-      font-size: 20px;
-    }
-
-    .footer {
-      position: fixed;
-      bottom: 20px;
-      left: 20px;
-      display: flex;
-      flex-direction: column;
-      gap: 20px;
       font-size: 16px;
-      z-index: 10;
+      margin-bottom: 40px;
     }
 
-    @media (max-width: 600px) {
-      .header { font-size: 28px; }
-      .center-links { font-size: 28px; gap: 40px; }
-      .footer { font-size: 14px; gap: 12px; }
+    .links, .footer {
+      display: flex;
+      gap: 20px;
+      margin-bottom: 20px;
+    }
+
+    .footer a {
+      font-size: 12px;
     }
   </style>
 </head>
 <body>
-  <div class="header">
-    <span>Giuseppe Dicanio</span>
-  </div>
 
-  <div class="center-links" style="flex-direction: row; gap: 80px;">
+  <div class="header">Giuseppe Dicanio</div>
+
+  <div class="links">
     <a href="works.html">works</a>
     <a href="about.html">about</a>
     <a href="cv.html">cv</a>
   </div>
 
-  <div class="footer" style="flex-direction: row; gap: 80px;">
+  <div class="footer">
     <a href="https://instagram.com/giuseppe.dicanio" target="_blank">instagram</a>
     <a href="mailto:giuseppedicanio2@gmail.com">email</a>
   </div>
+
 </body>
 </html>
