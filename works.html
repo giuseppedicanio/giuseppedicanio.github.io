@@ -134,69 +134,76 @@
   </div>
 
   <script>
-    const media = Array.from(document.querySelectorAll('.row img, .row video'));
-    let currentIndex = 0;
+  const media = Array.from(document.querySelectorAll('.row img, .row video'));
+  let currentIndex = 0;
 
-    function openLightbox(index) {
-      currentIndex = index;
-      const lb = document.getElementById('lightbox');
-      const lbImg = document.getElementById('lightbox-img');
+  function openLightbox(index) {
+    const lb = document.getElementById('lightbox');
+    const lbImg = document.getElementById('lightbox-img');
+    const lbVideoEl = document.getElementById('lightbox-video-el');
+    const lbVideoBox = document.getElementById('lightbox-video');
+
+    lbVideoEl.pause();
+    lbVideoEl.src = "";
+
+    currentIndex = index;
+
+    if(media[index].tagName === 'VIDEO') {
+      lb.style.display = 'none';
+      lbVideoBox.style.display = 'flex';
+      lbVideoEl.src = media[index].src;
+      lbVideoEl.play();
+    } else {
+      lbVideoBox.style.display = 'none';
+      lbImg.src = media[index].src;
+      lb.style.display = 'flex';
+    }
+  }
+
+  media.forEach((el, index) => {
+    el.addEventListener('click', () => openLightbox(index));
+  });
+
+  document.getElementById('lightbox').addEventListener('click', (e) => {
+    if(e.target.id === 'lightbox' || e.target.id === 'lightbox-img') {
+      document.getElementById('lightbox').style.display = 'none';
+    }
+  });
+
+  document.getElementById('lightbox-video').addEventListener('click', (e) => {
+    if(e.target.id === 'lightbox-video') {
       const lbVideo = document.getElementById('lightbox-video-el');
-      if(media[index].tagName === 'VIDEO') {
-        lb.style.display = 'none';
-        document.getElementById('lightbox-video').style.display = 'flex';
-        lbVideo.src = media[index].src;
-        lbVideo.play();
-      } else {
-        document.getElementById('lightbox-video').style.display = 'none';
-        lbImg.src = media[index].src;
-        lb.style.display = 'flex';
+      lbVideo.pause();
+      lbVideo.src = '';
+      document.getElementById('lightbox-video').style.display = 'none';
+    }
+  });
+
+  document.getElementById('prev').addEventListener('click', (e) => {
+    e.stopPropagation();
+    currentIndex = (currentIndex - 1 + media.length) % media.length;
+    openLightbox(currentIndex);
+  });
+
+  document.getElementById('next').addEventListener('click', (e) => {
+    e.stopPropagation();
+    currentIndex = (currentIndex + 1) % media.length;
+    openLightbox(currentIndex);
+  });
+
+  document.addEventListener('keydown', (e) => {
+    if(document.getElementById('lightbox').style.display === 'flex' || document.getElementById('lightbox-video').style.display === 'flex') {
+      if(e.key === 'ArrowLeft') {
+        currentIndex = (currentIndex - 1 + media.length) % media.length;
+        openLightbox(currentIndex);
+      }
+      if(e.key === 'ArrowRight') {
+        currentIndex = (currentIndex + 1) % media.length;
+        openLightbox(currentIndex);
       }
     }
+  });
+</script>
 
-    media.forEach((el, index) => {
-      el.addEventListener('click', () => openLightbox(index));
-    });
-
-    document.getElementById('lightbox').addEventListener('click', (e) => {
-      if(e.target.id === 'lightbox' || e.target.id === 'lightbox-img') {
-        document.getElementById('lightbox').style.display = 'none';
-      }
-    });
-
-    document.getElementById('lightbox-video').addEventListener('click', (e) => {
-      if(e.target.id === 'lightbox-video') {
-        const lbVideo = document.getElementById('lightbox-video-el');
-        lbVideo.pause();
-        lbVideo.src = '';
-        document.getElementById('lightbox-video').style.display = 'none';
-      }
-    });
-
-    document.getElementById('prev').addEventListener('click', (e) => {
-      e.stopPropagation();
-      currentIndex = (currentIndex - 1 + media.length) % media.length;
-      openLightbox(currentIndex);
-    });
-
-    document.getElementById('next').addEventListener('click', (e) => {
-      e.stopPropagation();
-      currentIndex = (currentIndex + 1) % media.length;
-      openLightbox(currentIndex);
-    });
-
-    document.addEventListener('keydown', (e) => {
-      if(document.getElementById('lightbox').style.display === 'flex' || document.getElementById('lightbox-video').style.display === 'flex') {
-        if(e.key === 'ArrowLeft') {
-          currentIndex = (currentIndex - 1 + media.length) % media.length;
-          openLightbox(currentIndex);
-        }
-        if(e.key === 'ArrowRight') {
-          currentIndex = (currentIndex + 1) % media.length;
-          openLightbox(currentIndex);
-        }
-      }
-    });
-  </script>
 </body>
 </html>
