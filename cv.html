@@ -16,7 +16,7 @@
       flex-direction: column;
     }
 
-    /* Header fisso in alto a sinistra, come nell'index */
+    /* Header fisso in alto a sinistra */
     .header {
       position: fixed;
       top: 20px;
@@ -38,18 +38,19 @@
       text-decoration: underline;
     }
 
-    /* Wrapper per centrare verticalmente il contenuto */
+    /* Wrapper per centratura verticale */
     .content-wrapper {
       flex: 1;
       display: flex;
       align-items: center; /* centrato verticalmente */
     }
 
-    /* Contenuto allineato a sinistra con stessa distanza del header */
+    /* Contenuto lungo senza a capo */
     .content {
-      margin-left: 20px; /* stessa distanza del bordo sinistro dell'header */
-      max-width: 600px;
-      font-size: 20px; /* come nell'index */
+      margin-left: 20px; /* stessa distanza del header */
+      white-space: nowrap; /* testo su una sola linea fino al bordo */
+      overflow-x: auto; /* scroll orizzontale se troppo lungo */
+      font-size: 20px;
       line-height: 1.5;
     }
 
@@ -66,7 +67,7 @@
 
   <div class="content-wrapper">
     <div class="content">
-      <p>Giuseppe Dicanio (Italy, 2005). I am currently studying at the Academy of Fine Arts in Rome.</p>
+      Giuseppe Dicanio (Italy, 2005). I am currently studying at the Academy of Fine Arts in Rome.
     </div>
   </div>
 </body>
