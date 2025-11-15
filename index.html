@@ -11,35 +11,24 @@
       background: #fff;
       color: #000;
       font-family: sans-serif;
-      position: relative;
       height: 100vh;
       overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
     }
 
     a {
-      color: inherit;
-      text-decoration: none;
-      transition: color 0.2s ease;
-      cursor: pointer;
-    }
-
-    #works:hover {
-      color: hotpink;
-    }
-    #about:hover {
-      color: #0000ee;
-    }
-    #cv:hover {
-      color: #00ff00;
-    }
-
-    .header a {
-      transition: color 0.3s ease;
       color: #000;
+      text-decoration: none;
+      transition: color 0.2s ease, text-decoration 0.2s ease;
+      font-weight: normal;
     }
 
-    .header a:hover {
-      color: #cc9900;
+    a:hover {
+      color: blue;
+      text-decoration: underline;
     }
 
     .header {
@@ -53,16 +42,13 @@
       z-index: 10;
     }
 
-    .random-links {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-    }
-
-    .random-links a {
-      position: absolute;
+    .center-links {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin-top: 120px;
+      margin-bottom: 140px;
+      gap: 80px; /* aumentato lo spazio tra le voci */
       font-size: 26px;
     }
 
@@ -78,17 +64,9 @@
     }
 
     @media (max-width: 600px) {
-      .header {
-        font-size: 28px;
-      }
-
-      .random-links a {
-        font-size: 28px;
-      }
-
-      .footer {
-        font-size: 14px;
-      }
+      .header { font-size: 28px; }
+      .center-links { font-size: 28px; gap: 40px; }
+      .footer { font-size: 14px; }
     }
   </style>
 </head>
@@ -98,7 +76,7 @@
     <a href="index.html">Dicanio</a>
   </div>
 
-  <div class="random-links">
+  <div class="center-links">
     <a href="works.html" id="works">works</a>
     <a href="about.html" id="about">about</a>
     <a href="cv.html" id="cv">cv</a>
@@ -108,31 +86,5 @@
     <a href="https://instagram.com/giuseppe.dicanio" target="_blank">instagram</a>
     <a href="mailto:giuseppedicanio2@gmail.com">email</a>
   </div>
-
-  <script>
-    function placeRandomly(id) {
-      const el = document.getElementById(id);
-      const vw = window.innerWidth;
-      const vh = window.innerHeight;
-
-      const header = document.querySelector('.header');
-      const footer = document.querySelector('.footer');
-
-      const headerBottom = header.offsetTop + header.offsetHeight + 20;
-      const footerTop = footer.offsetTop;
-
-      const x = Math.random() * (vw - 120);
-      const availableHeight = footerTop - headerBottom - 40;
-      const y = headerBottom + Math.random() * availableHeight;
-
-      el.style.left = `${x}px`;
-      el.style.top = `${y}px`;
-    }
-
-    ['works', 'about', 'cv'].forEach(placeRandomly);
-    window.addEventListener('resize', () => {
-      ['works', 'about', 'cv'].forEach(placeRandomly);
-    });
-  </script>
 </body>
 </html>
