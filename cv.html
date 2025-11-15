@@ -35,7 +35,6 @@
       text-decoration: underline;
     }
 
-    /* HEADER */
     .header {
       position: fixed;
       top: 20px;
@@ -44,7 +43,6 @@
       z-index: 10;
     }
 
-    /* CONTENITORE CV */
     .cv-container {
       display: flex;
       flex-direction: column;
@@ -57,7 +55,7 @@
 
     .cv-text {
       max-width: 600px;
-      white-space: pre-line;
+      white-space: normal; /* NON va a capo */
     }
 
     @media (max-width: 600px) {
