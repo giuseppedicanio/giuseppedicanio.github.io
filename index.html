@@ -15,22 +15,16 @@
       overflow: hidden;
       display: flex;
       flex-direction: column;
-      align-items: center;
       justify-content: center;
     }
 
-    span {
+    span, a {
       color: #000;
       text-decoration: none;
       font-weight: normal;
-      transition: none;
-      cursor: default;
     }
 
     a {
-      color: #000;
-      text-decoration: none;
-      font-weight: normal;
       cursor: pointer;
       transition: color 0.2s ease, text-decoration 0.2s ease;
     }
@@ -44,53 +38,50 @@
       position: fixed;
       top: 20px;
       left: 20px;
-      right: 20px;
-      display: flex;
-      justify-content: space-between;
       font-size: 26px;
       z-index: 10;
     }
 
     .center-links {
-      position: relative;
-      width: 100%;
+      display: flex;
+      flex-direction: column;
+      gap: 60px;
+      margin-left: 20px;
       margin-top: 120px;
-      margin-bottom: 120px;
+      margin-bottom: 140px;
       font-size: 22px;
-      height: 30px;
     }
 
     .footer {
       position: fixed;
       bottom: 20px;
       left: 20px;
-      right: 20px;
       display: flex;
-      justify-content: space-between;
+      flex-direction: column;
+      gap: 20px;
       font-size: 16px;
       z-index: 10;
     }
 
     @media (max-width: 600px) {
       .header { font-size: 28px; }
-      .center-links { font-size: 28px; gap: 60px; }
-      .footer { font-size: 14px; }
+      .center-links { font-size: 28px; gap: 40px; }
+      .footer { font-size: 14px; gap: 12px; }
     }
   </style>
 </head>
 <body>
   <div class="header">
-    <span>Giuseppe</span>
-    <span>Dicanio</span>
+    <span>Giuseppe Dicanio</span>
   </div>
 
-  <div class="center-links">
-    <a href="about.html" id="about" style="position:absolute; left:20px;">about</a>
-    <a href="works.html" id="works" style="position:absolute; left:50%; transform:translateX(-50%);">works</a>
-    <a href="cv.html" id="cv" style="position:absolute; right:20px;">cv</a>
+  <div class="center-links" style="flex-direction: row; gap: 80px;">
+    <a href="works.html">works</a>
+    <a href="about.html">about</a>
+    <a href="cv.html">cv</a>
   </div>
 
-  <div class="footer">
+  <div class="footer" style="flex-direction: row; gap: 80px;">
     <a href="https://instagram.com/giuseppe.dicanio" target="_blank">instagram</a>
     <a href="mailto:giuseppedicanio2@gmail.com">email</a>
   </div>
