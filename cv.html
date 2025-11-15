@@ -12,11 +12,12 @@
       background: #fff;
       color: #000;
       font-family: sans-serif;
-      height: 100vh;
+      min-height: 100vh;
       overflow-x: hidden;
       overflow-y: auto;
       display: flex;
       flex-direction: column;
+      align-items: center; /* centra tutto orizzontalmente */
     }
 
     span, a {
@@ -35,32 +36,39 @@
       text-decoration: underline;
     }
 
+    /* HEADER come index */
     .header {
-      position: fixed;
-      top: 20px;
-      left: 20px;
+      width: 100%;
+      padding: 20px;
+      display: flex;
+      justify-content: center; /* centrato orizzontalmente */
       font-size: 22px;
+      gap: 8px;
+      position: fixed;
+      top: 0;
+      left: 0;
       z-index: 10;
+      background: #fff;
     }
 
     .cv-container {
       display: flex;
       flex-direction: column;
-      gap: 60px;
-      margin-left: 20px;
-      margin-top: 120px;
-      margin-bottom: 140px;
-      font-size: 18px;
+      gap: 30px; /* distanza tra i testi */
+      margin-top: 100px; /* spazio sotto l'header */
+      max-width: 800px;
+      padding: 0 20px;
+      font-size: 16px; /* testo più piccolo */
+      text-align: center; /* centra il testo */
     }
 
     .cv-text {
-      max-width: 600px;
-      white-space: normal; /* NON va a capo */
+      white-space: normal;
     }
 
     @media (max-width: 600px) {
       .header { font-size: 28px; }
-      .cv-container { font-size: 28px; gap: 40px; }
+      .cv-container { font-size: 18px; gap: 20px; }
     }
   </style>
 </head>
