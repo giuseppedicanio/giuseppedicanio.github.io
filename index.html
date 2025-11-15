@@ -31,11 +31,11 @@
       width: 100%;
       padding: 20px 0;
       overflow: hidden;
-      justify-content: center;
+      justify-content: flex-start;
     }
 
     .row img {
-      height: 90px;
+      height: 150px;
       width: auto;
       flex-shrink: 0;
       object-fit: cover;
@@ -75,5 +75,23 @@
     <img src="w/1.jpg" alt="">
   </div>
 
+  <div id="lightbox" style="display:none; position:fixed; top:0; left:0; width:100vw; height:100vh; background:rgba(0,0,0,0.8); align-items:center; justify-content:center; z-index:1000;">
+    <img id="lightbox-img" src="" style="max-width:90%; max-height:90%;">
+  </div>
+
+  <script>
+    document.querySelectorAll('.row img').forEach(img => {
+      img.addEventListener('click', () => {
+        const lb = document.getElementById('lightbox');
+        const lbImg = document.getElementById('lightbox-img');
+        lbImg.src = img.src;
+        lb.style.display = 'flex';
+      });
+    });
+
+    document.getElementById('lightbox').addEventListener('click', () => {
+      document.getElementById('lightbox').style.display = 'none';
+    });
+  </script>
 </body>
 </html>
