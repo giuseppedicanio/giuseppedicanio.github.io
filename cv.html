@@ -7,20 +7,30 @@
   <style>
     body {
       margin: 0;
-      padding: 40px 20px;
+      padding: 0;
       background: #fff;
       color: #000;
       font-family: sans-serif;
+
+      /* 🔹 per centrare verticalmente */
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
     }
 
     a {
       color: #000;
       text-decoration: none;
-      transition: color 0.2s ease;
+      transition: 0.2s ease;
     }
 
-    a:hover {
-      color: #00ff00;
+    /* 🔹 hover solo sull’header */
+    .header a:hover {
+      color: blue;
+      text-decoration: underline;
+      cursor: pointer;
     }
 
     .header {
@@ -34,32 +44,30 @@
       z-index: 10;
     }
 
-      .content {
-        width: 60vw;
-        margin: 120px auto 40px auto;
-        text-align: center;
-        line-height: 1.5;
+    .content {
+      width: 60vw;
+      text-align: center;
+      line-height: 1.5;
+      font-size: 20px;
+      margin-top: 40px;
     }
 
     @media (max-width: 600px) {
-      .header {
-        font-size: 28px;
-      }
-
-      .content {
-        font-size: 22px;
-      }
+      .header { font-size: 28px; }
+      .content { font-size: 22px; width: 80vw; }
     }
   </style>
 </head>
 <body>
+
   <div class="header">
     <a href="index.html">Giuseppe</a>
     <a href="index.html">Dicanio</a>
   </div>
 
   <div class="content">
-    <p>Giuseppe Dicanio (Italy, 2005). I am currently studying at the Academy of Fine Arts in Rome.​​​</p>
+    <p>Giuseppe Dicanio (Italy, 2005). I am currently studying at the Academy of Fine Arts in Rome.</p>
   </div>
+
 </body>
 </html>
