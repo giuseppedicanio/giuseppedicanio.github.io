@@ -4,6 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>about - Giuseppe Dicanio</title>
+
   <style>
     body {
       margin: 0;
@@ -12,10 +13,11 @@
       color: #000;
       font-family: sans-serif;
       height: 100vh;
-      overflow-x: hidden;
-      overflow-y: auto;
+      overflow: hidden;
       display: flex;
       flex-direction: column;
+      align-items: center;
+      justify-content: center; /* centra verticalmente e orizzontalmente */
     }
 
     span, a {
@@ -34,43 +36,54 @@
       text-decoration: underline;
     }
 
+    /* HEADER come index */
     .header {
-      position: fixed;
-      top: 20px;
-      left: 20px;
+      width: 100%;
+      padding: 20px;
+      display: flex;
+      justify-content: center; /* centrato orizzontalmente */
       font-size: 22px;
+      gap: 8px;
+      position: fixed;
+      top: 0;
+      left: 0;
       z-index: 10;
+      background: #fff;
     }
 
-    .center-links {
+    .cv-container {
       display: flex;
       flex-direction: column;
-      gap: 60px;
-      margin-left: 20px;
-      margin-top: 120px;
-      margin-bottom: 140px;
-      font-size: 20px;
+      align-items: center;
+      justify-content: center;
+      text-align: center; /* centra il testo */
+      font-size: 16px;
+      padding: 20px;
+      max-width: 800px;
     }
 
     .cv-text {
-      max-width: 600px; /* limita larghezza per leggibilità */
-      white-space: pre-line;
+      white-space: normal;
     }
 
     @media (max-width: 600px) {
       .header { font-size: 28px; }
-      .center-links { font-size: 28px; gap: 40px; flex-direction: column; }
+      .cv-container { font-size: 18px; }
     }
   </style>
 </head>
+
 <body>
+
   <div class="header">
     <a href="index.html">Giuseppe Dicanio</a>
   </div>
 
-  <div class="center-links">
-    <div class="cv-text"> My practice investigates the perception of material reality, time and space through the use of everyday elements and specific operative logics
+  <div class="cv-container">
+    <div class="cv-text">
+      My practice investigates the perception of material reality, time and space through the use of everyday elements and specific operative logics.
     </div>
   </div>
+
 </body>
 </html>
