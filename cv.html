@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>cv - Giuseppe Dicanio</title>
+  <title>about - Giuseppe Dicanio</title>
 
   <style>
     body {
@@ -16,7 +16,8 @@
       overflow: hidden;
       display: flex;
       flex-direction: column;
-      align-items: center; /* centra orizzontalmente */
+      align-items: center;
+      justify-content: center; /* centra verticalmente */
     }
 
     span, a {
@@ -35,32 +36,32 @@
       text-decoration: underline;
     }
 
-    /* HEADER come index */
+    /* HEADER centrato */
     .header {
-      width: 100%;
-      padding: 20px;
-      display: flex;
-      justify-content: center;
-      font-size: 22px;
-      gap: 8px;
       position: fixed;
       top: 0;
-      left: 0;
+      width: 100%;
+      text-align: center; /* centra il contenuto */
+      padding: 20px 0;
+      font-size: 22px;
       z-index: 10;
       background: #fff;
     }
 
-    /* CONTENITORE CV centrato verticalmente */
+    .header a {
+      display: inline-block; /* necessario per hover corretto */
+    }
+
+    /* CONTENITORE CV/ABOUT */
     .cv-container {
       display: flex;
       flex-direction: column;
-      justify-content: center; /* centra verticalmente */
-      align-items: center;     /* centra orizzontalmente */
-      text-align: center;
-      flex-grow: 1;            /* occupa tutto lo spazio disponibile */
-      max-width: 800px;
-      padding: 0 20px;
+      align-items: center; /* contenitore centrato */
+      justify-content: center;
       font-size: 16px;
+      padding: 20px;
+      max-width: 800px;
+      text-align: left; /* testo allineato a sinistra */
     }
 
     .cv-text {
