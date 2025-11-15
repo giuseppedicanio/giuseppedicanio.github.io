@@ -52,13 +52,12 @@
     }
 
     .center-links {
-      display: flex;
-      flex-direction: row;
-      justify-content: center;
-      gap: 250px;
+      position: relative;
+      width: 100%;
       margin-top: 120px;
       margin-bottom: 140px;
       font-size: 22px;
+      height: 30px;
     }
 
     .footer {
@@ -86,9 +85,9 @@
   </div>
 
   <div class="center-links">
-    <a href="works.html" id="works">works</a>
-    <a href="about.html" id="about">about</a>
-    <a href="cv.html" id="cv">cv</a>
+    <a href="about.html" id="about" style="position:absolute; left:20px;">about</a>
+    <a href="works.html" id="works" style="position:absolute; left:50%; transform:translateX(-50%);">works</a>
+    <a href="cv.html" id="cv" style="position:absolute; right:20px;">cv</a>
   </div>
 
   <div class="footer">
@@ -97,4 +96,3 @@
   </div>
 </body>
 </html>
-
