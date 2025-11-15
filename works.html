@@ -1,93 +1,192 @@
 <!DOCTYPE html>
-<style>
-body {
-margin: 0;
-padding: 0;
-background: #fff;
-color: #000;
-font-family: sans-serif;
-height: 100vh;
-overflow: hidden;
-display: flex;
-flex-direction: column;
-align-items: center;
-justify-content: center;
-}
+<html lang="it">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>works - Giuseppe Dicanio</title>
+  <style>
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      padding: 0;
+      background: #fff;
+      font-family: sans-serif;
+      overflow-x: hidden;
+    }
 
+    .header {
+      width: 100%;
+      padding: 20px;
+      display: flex;
+      justify-content: space-between;
+      font-size: 26px;
+    }
 
-a {
-color: #000;
-text-decoration: none;
-transition: color 0.2s ease, text-decoration 0.2s ease;
-font-weight: normal;
-}
+    a { color: inherit; text-decoration: none; }
+    a:hover { color: hotpink; }
 
+    .row {
+      display: flex;
+      gap: 0px;
+      width: 100%;
+      padding: 20px 0;
+      overflow: hidden;
+      justify-content: flex-start;
+      margin-top: 120px;
+      margin-bottom: 140px;
+    }
 
-a:hover {
-color: blue;
-text-decoration: underline;
-}
+    .row img, .row video {
+      height: 150px;
+      width: auto;
+      flex-shrink: 0;
+      object-fit: cover;
+      cursor: pointer;
+    }
 
-
-.header {
-position: fixed;
-top: 20px;
-left: 20px;
-right: 20px;
-display: flex;
-justify-content: space-between;
-font-size: 26px;
-z-index: 10;
-}
-
-
-.center-links {
-display: flex;
-flex-direction: column;
-align-items: center;
-margin-top: 120px;
-margin-bottom: 140px;
-gap: 40px;
-font-size: 26px;
-}
-
-
-.footer {
-position: fixed;
-bottom: 20px;
-left: 20px;
-right: 20px;
-display: flex;
-justify-content: space-between;
-font-size: 16px;
-z-index: 10;
-}
-
-
-@media (max-width: 600px) {
-.header { font-size: 28px; }
-.center-links { font-size: 28px; gap: 20px; }
-.footer { font-size: 14px; }
-}
-</style>
+    @media (max-width: 600px) {
+      .row img, .row video {
+        height: 60px;
+      }
+      .header { font-size: 28px; }
+    }
+  </style>
 </head>
 <body>
-<div class="header">
-<a href="index.html">Giuseppe</a>
-<a href="index.html">Dicanio</a>
-</div>
+  <div class="header">
+    <a href="index.html">Giuseppe</a>
+    <a href="index.html">Dicanio</a>
+  </div>
 
+  <div class="row">
+    <img src="a/sac.png" alt="">
+    <img src="a/sac1.png" alt="">
+    <video src="a/sacclip.mp4" class="vid" muted loop autoplay></video>
+    <img src="a/sac2.png" alt="">
+  </div>
 
-<div class="center-links">
-<a href="works.html" id="works">works</a>
-<a href="about.html" id="about">about</a>
-<a href="cv.html" id="cv">cv</a>
-</div>
+  <div class="row">
+    <img src="a/waiting.png" alt="">
+    <video src="a/wclip.mp4" class="vid" muted loop autoplay></video>
+    <img src="a/w1.png" alt="">
+    <img src="a/w2.png" alt="">
+    <img src="a/w3.png" alt="">
+  </div>
 
+  <div class="row">
+    <img src="a/staringat.png" alt="">
+    <img src="a/sa1.png" alt="">
+    <img src="a/sa2.png" alt="">
+    <video src="a/saclip.mp4" class="vid" muted loop autoplay></video>
+    <img src="a/sa3.png" alt="">
+    <img src="a/sa4.png" alt="">
+  </div>
 
-<div class="footer">
-<a href="https://instagram.com/giuseppe.dicanio" target="_blank">instagram</a>
-<a href="mailto:giuseppedicanio2@gmail.com">email</a>
-</div>
+  <div class="row">
+    <img src="a/ifww.png" alt="">
+    <img src="a/ifww2.png" alt="">
+    <video src="a/ifwwclip.mp4" class="vid" muted loop autoplay></video>
+  </div>
+
+  <div class="row">
+    <img src="a/36.png" alt="">
+    <video src="a/36clip.mp4" class="vid" muted loop autoplay></video>
+    <img src="a/36.1.png" alt="">
+  </div>
+
+   <div class="row">
+    <img src="a/1.png" alt="">
+    <img src="a/1.1.png" alt="">
+    <img src="a/1.2.png" alt="">
+    <video src="a/1clip.mp4" class="vid" muted loop autoplay></video>
+    <img src="a/1.3.png" alt="">
+  </div>
+
+  <div class="row">
+    <img src="a/c1.jpg" alt="">
+    <img src="a/c2.jpg" alt="">
+    <img src="a/c3.jpg" alt="">
+    <img src="a/dc3.jpg" alt="">
+  </div>
+
+   <div class="row">
+    <img src="a/mop.jpg" alt="">
+  </div>
+
+  <div id="lightbox" style="display:none; position:fixed; top:0; left:0; width:100vw; height:100vh; background:rgba(0,0,0,0.8); align-items:center; justify-content:center; z-index:1000;">
+    <button id="prev" style="position:absolute; left:30px; font-size:40px; color:white; background:none; border:none; cursor:pointer;">&#10094;</button>
+    <img id="lightbox-img" src="" style="max-width:90%; max-height:90%;">
+    <button id="next" style="position:absolute; right:30px; font-size:40px; color:white; background:none; border:none; cursor:pointer;">&#10095;</button>
+  </div>
+
+  <div id="lightbox-video" style="display:none; position:fixed; top:0; left:0; width:100vw; height:100vh; background:rgba(0,0,0,0.8); align-items:center; justify-content:center; z-index:1000;">
+    <video id="lightbox-video-el" controls style="max-width:90%; max-height:90%;"></video>
+  </div>
+
+  <script>
+    const media = Array.from(document.querySelectorAll('.row img, .row video'));
+    let currentIndex = 0;
+
+    function openLightbox(index) {
+      currentIndex = index;
+      const lb = document.getElementById('lightbox');
+      const lbImg = document.getElementById('lightbox-img');
+      const lbVideo = document.getElementById('lightbox-video-el');
+      if(media[index].tagName === 'VIDEO') {
+        lb.style.display = 'none';
+        document.getElementById('lightbox-video').style.display = 'flex';
+        lbVideo.src = media[index].src;
+        lbVideo.play();
+      } else {
+        document.getElementById('lightbox-video').style.display = 'none';
+        lbImg.src = media[index].src;
+        lb.style.display = 'flex';
+      }
+    }
+
+    media.forEach((el, index) => {
+      el.addEventListener('click', () => openLightbox(index));
+    });
+
+    document.getElementById('lightbox').addEventListener('click', (e) => {
+      if(e.target.id === 'lightbox' || e.target.id === 'lightbox-img') {
+        document.getElementById('lightbox').style.display = 'none';
+      }
+    });
+
+    document.getElementById('lightbox-video').addEventListener('click', (e) => {
+      if(e.target.id === 'lightbox-video') {
+        const lbVideo = document.getElementById('lightbox-video-el');
+        lbVideo.pause();
+        lbVideo.src = '';
+        document.getElementById('lightbox-video').style.display = 'none';
+      }
+    });
+
+    document.getElementById('prev').addEventListener('click', (e) => {
+      e.stopPropagation();
+      currentIndex = (currentIndex - 1 + media.length) % media.length;
+      openLightbox(currentIndex);
+    });
+
+    document.getElementById('next').addEventListener('click', (e) => {
+      e.stopPropagation();
+      currentIndex = (currentIndex + 1) % media.length;
+      openLightbox(currentIndex);
+    });
+
+    document.addEventListener('keydown', (e) => {
+      if(document.getElementById('lightbox').style.display === 'flex' || document.getElementById('lightbox-video').style.display === 'flex') {
+        if(e.key === 'ArrowLeft') {
+          currentIndex = (currentIndex - 1 + media.length) % media.length;
+          openLightbox(currentIndex);
+        }
+        if(e.key === 'ArrowRight') {
+          currentIndex = (currentIndex + 1) % media.length;
+          openLightbox(currentIndex);
+        }
+      }
+    });
+  </script>
 </body>
 </html>
