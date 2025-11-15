@@ -1,30 +1,35 @@
 <!DOCTYPE html>
 <html lang="it">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>about - Giuseppe Dicanio</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>cv - Giuseppe Dicanio</title>
   <style>
     body {
       margin: 0;
-      padding: 40px 20px;
+      padding: 0;
       background: #fff;
       color: #000;
       font-family: sans-serif;
+      height: 100vh;
+      overflow-x: hidden;
+      overflow-y: auto;
       display: flex;
       flex-direction: column;
-      align-items: center;
     }
 
-    a.header-link {
+    span, a {
       color: #000;
       text-decoration: none;
       font-weight: normal;
-      font-size: 22px; /* più piccolo rispetto all'originale */
+    }
+
+    a {
+      cursor: pointer;
       transition: color 0.2s ease, text-decoration 0.2s ease;
     }
 
-    a.header-link:hover {
+    a:hover {
       color: blue;
       text-decoration: underline;
     }
@@ -33,31 +38,39 @@
       position: fixed;
       top: 20px;
       left: 20px;
-      font-size: 26px;
+      font-size: 22px;
       z-index: 10;
     }
 
-    .content {
-      width: 60vw;
+    .center-links {
+      display: flex;
+      flex-direction: column;
+      gap: 60px;
+      margin-left: 20px;
       margin-top: 120px;
-      text-align: center;
-      line-height: 1.5;
-      font-size: 18px; /* testo principale più piccolo */
+      margin-bottom: 140px;
+      font-size: 20px;
+    }
+
+    .cv-text {
+      max-width: 600px; /* limita larghezza per leggibilità */
+      white-space: pre-line;
     }
 
     @media (max-width: 600px) {
-      a.header-link { font-size: 20px; }
-      .content { font-size: 16px; width: 90vw; }
+      .header { font-size: 28px; }
+      .center-links { font-size: 28px; gap: 40px; flex-direction: column; }
     }
   </style>
 </head>
 <body>
   <div class="header">
-    <a href="index.html" class="header-link">Giuseppe Dicanio</a>
+    <a href="index.html">Giuseppe Dicanio</a>
   </div>
 
-  <div class="content">
-    <p>Giuseppe Dicanio (Italy, 2005). I am currently studying at the Academy of Fine Arts in Rome.</p>
+  <div class="center-links">
+    <div class="cv-text"> My practice investigates the perception of material reality, time and space through the use of everyday elements and specific operative logics
+    </div>
   </div>
 </body>
 </html>
