@@ -17,7 +17,7 @@
       display: flex;
       flex-direction: column;
       align-items: center;
-      justify-content: center; /* centra verticalmente e orizzontalmente */
+      justify-content: center; /* centra verticalmente */
     }
 
     span, a {
@@ -36,30 +36,32 @@
       text-decoration: underline;
     }
 
-    /* HEADER come index */
+    /* HEADER centrato */
     .header {
-      width: 100%;
-      padding: 20px;
-      display: flex;
-      justify-content: center; /* centrato orizzontalmente */
-      font-size: 22px;
-      gap: 8px;
       position: fixed;
       top: 0;
-      left: 0;
+      width: 100%;
+      text-align: center; /* centra il contenuto */
+      padding: 20px 0;
+      font-size: 22px;
       z-index: 10;
       background: #fff;
     }
 
+    .header a {
+      display: inline-block; /* necessario per hover corretto */
+    }
+
+    /* CONTENITORE CV/ABOUT */
     .cv-container {
       display: flex;
       flex-direction: column;
-      align-items: center;
+      align-items: center; /* contenitore centrato */
       justify-content: center;
-      text-align: left; /* centra il testo */
       font-size: 16px;
       padding: 20px;
       max-width: 800px;
+      text-align: left; /* testo allineato a sinistra */
     }
 
     .cv-text {
@@ -87,3 +89,4 @@
 
 </body>
 </html>
+
