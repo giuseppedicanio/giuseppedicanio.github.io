@@ -21,23 +21,9 @@
 
     .header {
       font-size: 22px;
-      margin-bottom: 20px;
+      margin-bottom: 40px;
       color: black;
       text-decoration: none;
-    }
-
-    .top-links a,
-    .center-links a {
-      color: blue;
-      text-decoration: underline;
-      font-size: 20px;
-      margin: 10px 0;
-      display: inline-block;
-    }
-
-    .top-links {
-      margin-bottom: 60px;
-      font-size: 16px;
     }
 
     .center-links {
@@ -45,12 +31,30 @@
       flex-direction: column;
       gap: 20px;
       font-size: 20px;
+      margin-bottom: 60px; /* spazio verso footer */
+    }
+
+    .center-links a {
+      color: blue;
+      text-decoration: underline;
+    }
+
+    .footer {
+      display: flex;
+      gap: 40px;
+      font-size: 16px;
+      justify-content: center;
+    }
+
+    .footer a {
+      color: blue;
+      text-decoration: underline;
     }
 
     @media (max-width: 600px) {
-      .header { font-size: 28px; }
-      .top-links { font-size: 18px; margin-bottom: 40px; }
-      .center-links { font-size: 28px; gap: 15px; }
+      .header { font-size: 28px; margin-bottom: 30px; }
+      .center-links { font-size: 28px; gap: 15px; margin-bottom: 40px; }
+      .footer { font-size: 14px; gap: 20px; }
     }
   </style>
 </head>
@@ -58,15 +62,15 @@
 
   <div class="header">Giuseppe Dicanio</div>
 
-  <div class="top-links">
-    <a href="https://instagram.com/giuseppe.dicanio" target="_blank">instagram</a><br>
-    <a href="mailto:giuseppedicanio2@gmail.com">email</a>
-  </div>
-
   <div class="center-links">
     <a href="works.html">works</a>
     <a href="about.html">about</a>
     <a href="cv.html">cv</a>
+  </div>
+
+  <div class="footer">
+    <a href="https://instagram.com/giuseppe.dicanio" target="_blank">instagram</a>
+    <a href="mailto:giuseppedicanio2@gmail.com">email</a>
   </div>
 
 </body>
