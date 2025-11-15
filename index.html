@@ -19,11 +19,20 @@
       justify-content: center;
     }
 
+    span {
+      color: #000;
+      text-decoration: none;
+      font-weight: normal;
+      transition: none;
+      cursor: default;
+    }
+
     a {
       color: #000;
       text-decoration: none;
-      transition: color 0.2s ease, text-decoration 0.2s ease;
       font-weight: normal;
+      cursor: pointer;
+      transition: color 0.2s ease, text-decoration 0.2s ease;
     }
 
     a:hover {
@@ -46,7 +55,7 @@
       display: flex;
       flex-direction: row;
       justify-content: center;
-      gap: 250px; /* aumentato lo spazio tra le voci */
+      gap: 250px;
       margin-top: 120px;
       margin-bottom: 140px;
       font-size: 22px;
@@ -72,8 +81,8 @@
 </head>
 <body>
   <div class="header">
-    <a href="index.html">Giuseppe</a>
-    <a href="index.html">Dicanio</a>
+    <span>Giuseppe</span>
+    <span>Dicanio</span>
   </div>
 
   <div class="center-links">
@@ -88,3 +97,4 @@
   </div>
 </body>
 </html>
+
