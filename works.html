@@ -123,10 +123,9 @@
     <img src="a/mop.jpg" alt="">
   </div>
 
+  <!-- LIGHTBOX senza frecce -->
   <div id="lightbox" style="display:none; position:fixed; top:0; left:0; width:100vw; height:100vh; background:rgba(0,0,0,0.8); align-items:center; justify-content:center; z-index:1000;">
-    <button id="prev" style="position:absolute; left:30px; font-size:40px; color:white; background:none; border:none; cursor:pointer;">&#10094;</button>
     <img id="lightbox-img" src="" style="max-width:90%; max-height:90%;">
-    <button id="next" style="position:absolute; right:30px; font-size:40px; color:white; background:none; border:none; cursor:pointer;">&#10095;</button>
   </div>
 
   <div id="lightbox-video" style="display:none; position:fixed; top:0; left:0; width:100vw; height:100vh; background:rgba(0,0,0,0.8); align-items:center; justify-content:center; z-index:1000;">
@@ -160,6 +159,16 @@
     }
   }
 
+  function showNext() {
+    currentIndex = (currentIndex + 1) % media.length;
+    openLightbox(currentIndex);
+  }
+
+  function showPrev() {
+    currentIndex = (currentIndex - 1 + media.length) % media.length;
+    openLightbox(currentIndex);
+  }
+
   media.forEach((el, index) => {
     el.addEventListener('click', () => openLightbox(index));
   });
@@ -179,28 +188,14 @@
     }
   });
 
-  document.getElementById('prev').addEventListener('click', (e) => {
-    e.stopPropagation();
-    currentIndex = (currentIndex - 1 + media.length) % media.length;
-    openLightbox(currentIndex);
-  });
-
-  document.getElementById('next').addEventListener('click', (e) => {
-    e.stopPropagation();
-    currentIndex = (currentIndex + 1) % media.length;
-    openLightbox(currentIndex);
-  });
-
+  /* Navigazione con tastiera */
   document.addEventListener('keydown', (e) => {
-    if(document.getElementById('lightbox').style.display === 'flex' || document.getElementById('lightbox-video').style.display === 'flex') {
-      if(e.key === 'ArrowLeft') {
-        currentIndex = (currentIndex - 1 + media.length) % media.length;
-        openLightbox(currentIndex);
-      }
-      if(e.key === 'ArrowRight') {
-        currentIndex = (currentIndex + 1) % media.length;
-        openLightbox(currentIndex);
-      }
+    const lb = document.getElementById('lightbox');
+    const lbVideoBox = document.getElementById('lightbox-video');
+
+    if (lb.style.display === 'flex' || lbVideoBox.style.display === 'flex') {
+      if (e.key === 'ArrowRight') showNext();
+      if (e.key === 'ArrowLeft') showPrev();
     }
   });
 </script>
