@@ -11,67 +11,90 @@
       background: #fff;
       color: #000;
       font-family: sans-serif;
+      height: 100vh;
       display: flex;
       flex-direction: column;
-      justify-content: center;
+      justify-content: space-between;
       align-items: center;
-      min-height: 100vh;
-      text-align: center;
+    }
+
+    span, a {
+      color: #000;
+      text-decoration: none;
+      font-weight: normal;
+    }
+
+    a {
+      cursor: pointer;
+      transition: color 0.2s ease, text-decoration 0.2s ease;
+    }
+
+    a:hover {
+      color: blue;
+      text-decoration: underline;
     }
 
     .header {
       font-size: 22px;
-      margin-bottom: 40px;
-      color: black;
-      text-decoration: none;
+      margin-top: 20px;
+      text-align: center;
+    }
+
+    .center-image {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 20px;
+      flex-grow: 1;
+      justify-content: center;
+    }
+
+    .center-image img {
+      width: 250px;  /* puoi cambiare la dimensione */
+      height: 250px;
+      object-fit: cover;
+      cursor: pointer;
     }
 
     .center-links {
       display: flex;
-      flex-direction: column;
-      gap: 20px;
-      font-size: 20px;
-      margin-bottom: 60px; /* spazio verso footer */
-    }
-
-    .center-links a {
-      color: blue;
-      text-decoration: underline;
+      gap: 40px;
+      font-size: 18px;
     }
 
     .footer {
+      font-size: 16px;
+      margin-bottom: 20px;
       display: flex;
       gap: 40px;
-      font-size: 16px;
-      justify-content: center;
-    }
-
-    .footer a {
-      color: blue;
-      text-decoration: underline;
     }
 
     @media (max-width: 600px) {
-      .header { font-size: 28px; margin-bottom: 30px; }
-      .center-links { font-size: 28px; gap: 15px; margin-bottom: 40px; }
+      .header { font-size: 28px; }
+      .center-links { font-size: 20px; gap: 20px; }
       .footer { font-size: 14px; gap: 20px; }
+      .center-image img { width: 200px; height: 200px; }
     }
   </style>
 </head>
 <body>
+  <div class="header">
+    <span>Giuseppe Dicanio</span>
+  </div>
 
-  <div class="header">Giuseppe Dicanio</div>
-
-  <div class="center-links">
-    <a href="works.html">works</a>
-    <a href="about.html">about</a>
-    <a href="cv.html">cv</a>
+  <div class="center-image">
+    <a href="works.html">
+      <img src="i/cow.jpg" alt="works">
+    </a>
+    <div class="center-links">
+      <a href="about.html">about</a>
+      <a href="cv.html">cv</a>
+    </div>
   </div>
 
   <div class="footer">
     <a href="https://instagram.com/giuseppe.dicanio" target="_blank">instagram</a>
     <a href="mailto:giuseppedicanio2@gmail.com">email</a>
   </div>
-
 </body>
 </html>
