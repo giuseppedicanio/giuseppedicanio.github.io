@@ -1,63 +1,89 @@
 <!DOCTYPE html>
 <html lang="it">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>cv - Giuseppe Dicanio</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Giuseppe Dicanio</title>
   <style>
     body {
       margin: 0;
       padding: 0;
       background: #fff;
+      color: #000;
       font-family: sans-serif;
       height: 100vh;
+      overflow: hidden;
       display: flex;
       flex-direction: column;
-      justify-content: center; /* centra verticalmente */
+      justify-content: center;
     }
 
-    /* Header fisso in alto a sinistra */
-    .header {
-      position: fixed;
-      top: 20px;
-      left: 20px;
-      font-size: 26px;
-      z-index: 10;
-    }
-
-    .header a {
+    span, a {
       color: #000;
       text-decoration: none;
       font-weight: normal;
+    }
+
+    a {
       cursor: pointer;
       transition: color 0.2s ease, text-decoration 0.2s ease;
     }
 
-    .header a:hover {
+    a:hover {
       color: blue;
       text-decoration: underline;
     }
 
-    /* Testo semplice */
-    .content {
-      margin-left: 20px; /* stessa distanza dall'header */
+    .header {
+      position: fixed;
+      top: 20px;
+      left: 20px;
       font-size: 22px;
-      line-height: 1.5;
-      max-width: 90%; /* evita che esca dal viewport */
+      z-index: 10;
+    }
+
+    .center-links {
+      display: flex;
+      flex-direction: column;
+      gap: 60px;
+      margin-left: 20px;
+      margin-top: 120px;
+      margin-bottom: 140px;
+      font-size: 20px;
+    }
+
+    .footer {
+      position: fixed;
+      bottom: 20px;
+      left: 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      font-size: 16px;
+      z-index: 10;
     }
 
     @media (max-width: 600px) {
       .header { font-size: 28px; }
-      .content { font-size: 18px; max-width: 90%; }
+      .center-links { font-size: 28px; gap: 40px; }
+      .footer { font-size: 14px; gap: 12px; }
     }
   </style>
 </head>
 <body>
   <div class="header">
-    <a href="index.html">Giuseppe Dicanio</a>
+    <span>Giuseppe Dicanio</span>
   </div>
 
-  <div class="content">
-    Giuseppe Dicanio (Italy, 2005). I am currently studying at the Academy of Fine Arts in Rome.
+  <div class="center-links" style="flex-direction: row; gap: 80px;">
+    <a href="works.html">works</a>
+    <a href="about.html">about</a>
+    <a href="cv.html">cv</a>
+  </div>
+
+  <div class="footer" style="flex-direction: row; gap: 80px;">
+    <a href="https://instagram.com/giuseppe.dicanio" target="_blank">instagram</a>
+    <a href="mailto:giuseppedicanio2@gmail.com">email</a>
+  </div>
 </body>
 </html>
