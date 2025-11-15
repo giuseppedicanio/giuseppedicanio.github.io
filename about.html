@@ -11,55 +11,53 @@
       background: #fff;
       color: #000;
       font-family: sans-serif;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
     }
 
-    a {
+    a.header-link {
       color: #000;
       text-decoration: none;
-      transition: color 0.2s ease;
+      font-weight: normal;
+      font-size: 22px; /* più piccolo rispetto all'originale */
+      transition: color 0.2s ease, text-decoration 0.2s ease;
     }
 
-    a:hover {
+    a.header-link:hover {
       color: blue;
+      text-decoration: underline;
     }
 
     .header {
       position: fixed;
       top: 20px;
       left: 20px;
-      right: 20px;
-      display: flex;
-      justify-content: space-between;
       font-size: 26px;
       z-index: 10;
     }
 
-      .content {
-        width: 60vw;
-        margin: 120px auto 40px auto;
-        text-align: center;
-        line-height: 1.5;
+    .content {
+      width: 60vw;
+      margin-top: 120px;
+      text-align: center;
+      line-height: 1.5;
+      font-size: 18px; /* testo principale più piccolo */
     }
 
     @media (max-width: 600px) {
-      .header {
-        font-size: 28px;
-      }
-
-      .content {
-        font-size: 22px;
-      }
+      a.header-link { font-size: 20px; }
+      .content { font-size: 16px; width: 90vw; }
     }
   </style>
 </head>
 <body>
   <div class="header">
-    <a href="index.html">Giuseppe</a>
-    <a href="index.html">Dicanio</a>
+    <a href="index.html" class="header-link">Giuseppe Dicanio</a>
   </div>
 
   <div class="content">
-    <p>My practice investigates the perception of material reality, time and space through the use of everyday elements and specific operative logics.</p>
+    <p>Giuseppe Dicanio (Italy, 2005). I am currently studying at the Academy of Fine Arts in Rome.</p>
   </div>
 </body>
 </html>
