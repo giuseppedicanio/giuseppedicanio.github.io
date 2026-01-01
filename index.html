@@ -2,33 +2,24 @@
 <html lang="it">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Giuseppe Dicanio</title>
+
   <style>
+    * { box-sizing: border-box; }
+
     body {
       margin: 0;
       padding: 0;
       background: #fff;
-      color: #000;
       font-family: sans-serif;
-
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      align-items: center;
-
-      min-height: 100dvh; /* usa l'altezza visibile del viewport su mobile */
-    }
-
-    span, a {
-      color: #000;
-      text-decoration: none;
-      font-weight: normal;
+      overflow-x: hidden;
     }
 
     a {
-      cursor: pointer;
-      transition: color 0.2s ease, text-decoration 0.2s ease;
+      color: #000;
+      text-decoration: none;
+      transition: 0.2s;
     }
 
     a:hover {
@@ -36,75 +27,217 @@
       text-decoration: underline;
     }
 
+    /* HEADER */
     .header {
-      font-size: 22px;
-      margin-top: 20px;
+      width: 100%;
+      padding: 20px;
       text-align: center;
     }
 
-    .center-image {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 20px;
-      /* togli flex-grow per non spingere troppo il footer in basso */
-      justify-content: center;
-      padding: 20px 0; /* un po' di padding sopra e sotto */
+    .name {
+      font-size: 22px;
     }
 
-    .center-image img {
-      width: 250px;
-      height: 250px;
+    .links {
+      margin-top: 6px;
+      display: flex;
+      justify-content: center;
+      gap: 40px;
+      font-size: 16px;
+    }
+
+    /* GALLERIA */
+    .row {
+      display: flex;
+      gap: 0;
+      width: 100%;
+      padding: 20px 0 6px 0;
+      overflow: hidden;
+      justify-content: flex-start;
+      margin-top: 120px;
+    }
+
+    .row img, .row video {
+      height: 150px;
+      width: auto;
+      flex-shrink: 0;
       object-fit: cover;
       cursor: pointer;
-      transition: 0.3s ease;
     }
 
-    /* Hover per cambiare immagine */
-    .center-image a:hover img {
-      content: url('i/cow1.jpg');
-    }
-
-    .center-links {
-      display: flex;
-      gap: 40px;
-      font-size: 18px;
-    }
-
-    .footer {
-      font-size: 16px;
-      margin-bottom: 20px;
-      display: flex;
-      gap: 40px;
+    .caption {
+      font-size: 12px;
+      color: #444;
+      margin: 20px 0 40px 20px;
     }
 
     @media (max-width: 600px) {
-      .header { font-size: 28px; }
-      .center-links { font-size: 20px; gap: 20px; }
-      .footer { font-size: 14px; gap: 20px; }
-      .center-image img { width: 200px; height: 200px; }
-      .center-image { padding: 10px 0; }
+      .name { font-size: 28px; }
+      .links { font-size: 14px; gap: 20px; }
+      .row img, .row video { height: 60px; }
+      .caption { margin-left: 10px; }
+    }
+
+    /* LIGHTBOX */
+    #lightbox, #lightbox-video {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      background: rgba(0,0,0,0.8);
+      align-items: center;
+      justify-content: center;
+      z-index: 1000;
+    }
+
+    #lightbox-img, #lightbox-video-el {
+      max-width: 90%;
+      max-height: 90%;
     }
   </style>
 </head>
-<body>
-  <div class="header">
-    <span>Giuseppe Dicanio</span>
-  </div>
 
-  <div class="center-image">
-    <a href="works.html">
-      <img src="i/cow.jpg" alt="works">
-    </a>
-    <div class="center-links">
+<body>
+
+  <!-- HEADER -->
+  <div class="header">
+    <div class="name">Giuseppe Dicanio</div>
+    <div class="links">
+      <a href="https://instagram.com/giuseppe.dicanio" target="_blank">instagram</a>
+      <a href="mailto:giuseppedicanio2@gmail.com">email</a>
       <a href="about.html">about</a>
-      <a href="cv.html">cv</a>
     </div>
   </div>
 
-  <div class="footer">
-    <a href="https://instagram.com/giuseppe.dicanio" target="_blank">instagram</a>
-    <a href="mailto:giuseppedicanio2@gmail.com">email</a>
+  <!-- WORKS -->
+
+  <div class="row">
+    <img src="a/tb.png">
+    <video src="a/tbclip.mp4" muted loop autoplay></video>
+    <img src="a/tb1.png">
+    <img src="a/tb2.png">
+    <img src="a/tb3.png">
   </div>
+  <div class="caption">The boat (2025) — video and audio (4'29")</div>
+
+  <div class="row">
+    <img src="a/sac.png">
+    <img src="a/sac1.png">
+    <video src="a/sacclip.mp4" muted loop autoplay></video>
+    <img src="a/sac2.png">
+  </div>
+  <div class="caption">Self-assembling cars (2025) — video and audio (3'51")</div>
+
+  <div class="row">
+    <img src="a/waiting.png">
+    <video src="a/wclip.mp4" muted loop autoplay></video>
+    <img src="a/w1.png">
+    <img src="a/w2.png">
+    <img src="a/w3.png">
+  </div>
+  <div class="caption">Waiting (2025) — video and audio (5'24")</div>
+
+  <div class="row">
+    <img src="a/staringat.png">
+    <img src="a/sa1.png">
+    <img src="a/sa2.png">
+    <video src="a/saclip.mp4" muted loop autoplay></video>
+    <img src="a/sa3.png">
+    <img src="a/sa4.png">
+  </div>
+  <div class="caption">Staring at (2025) — video and audio (24'50")</div>
+
+  <div class="row">
+    <img src="a/ifwwp.jpg">
+    <img src="a/ifww.png">
+    <img src="a/ifww2.png">
+    <video src="a/ifwwclip.mp4" muted loop autoplay></video>
+  </div>
+  <div class="caption">I float without water (2025) — video and audio (39")</div>
+
+  <div class="row">
+    <img src="a/36.png">
+    <video src="a/36clip.mp4" muted loop autoplay></video>
+    <img src="a/36.1.png">
+  </div>
+  <div class="caption">36 (2025) — video and audio (1'17")</div>
+
+  <div class="row">
+    <img src="a/1.png">
+    <img src="a/1.1.png">
+    <img src="a/1.2.png">
+    <video src="a/1clip.mp4" muted loop autoplay></video>
+    <img src="a/1.3.png">
+  </div>
+  <div class="caption">/ (2025) — video and audio (8'00")</div>
+
+  <div class="row">
+    <img src="a/c1.jpg">
+    <img src="a/c2.jpg">
+    <img src="a/c3.jpg">
+    <img src="a/dc3.jpg">
+  </div>
+  <div class="caption">
+    Circuits (2025) — a series of installation works — Electricity enters a continuous, cyclical transmission process.
+  </div>
+
+  <div class="row">
+    <img src="a/mop.jpg">
+  </div>
+  <div class="caption">Mop (2025) — graphite on paper — 225×150 cm</div>
+
+  <!-- LIGHTBOX -->
+  <div id="lightbox">
+    <img id="lightbox-img">
+  </div>
+
+  <div id="lightbox-video">
+    <video id="lightbox-video-el" controls></video>
+  </div>
+
+  <script>
+    const media = Array.from(document.querySelectorAll('.row img, .row video'));
+    let currentIndex = 0;
+
+    function openLightbox(index) {
+      const lb = document.getElementById('lightbox');
+      const lbImg = document.getElementById('lightbox-img');
+      const lbVideoBox = document.getElementById('lightbox-video');
+      const lbVideo = document.getElementById('lightbox-video-el');
+
+      lbVideo.pause();
+      lbVideo.src = "";
+      currentIndex = index;
+
+      if (media[index].tagName === 'VIDEO') {
+        lb.style.display = 'none';
+        lbVideoBox.style.display = 'flex';
+        lbVideo.src = media[index].src;
+        lbVideo.play();
+      } else {
+        lbVideoBox.style.display = 'none';
+        lbImg.src = media[index].src;
+        lb.style.display = 'flex';
+      }
+    }
+
+    media.forEach((el, i) => {
+      el.addEventListener('click', () => openLightbox(i));
+    });
+
+    document.getElementById('lightbox').addEventListener('click', () => {
+      document.getElementById('lightbox').style.display = 'none';
+    });
+
+    document.getElementById('lightbox-video').addEventListener('click', () => {
+      const v = document.getElementById('lightbox-video-el');
+      v.pause(); v.src = '';
+      document.getElementById('lightbox-video').style.display = 'none';
+    });
+  </script>
+
 </body>
 </html>
+
