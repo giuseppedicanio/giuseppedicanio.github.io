@@ -26,7 +26,7 @@ footer {
     font-size: 14px;
 }
 
-/* Griglia immagini */
+/* Griglia immagini con proporzioni naturali */
 .image-grid {
     display: flex;
     flex-wrap: wrap;
@@ -34,10 +34,12 @@ footer {
 }
 
 .image-grid img {
-    width: 180px; /* dimensione fissa e realistica */
-    height: auto;
+    max-width: 200px;      /* larghezza massima */
+    height: auto;           /* mantiene proporzioni */
     cursor: pointer;
-    /* NIENTE hover scale */
+    border: none;
+    outline: none;
+    display: block;
 }
 
 /* Lightbox minimal */
@@ -57,12 +59,12 @@ footer {
 #lightbox img {
     max-width: 90%;
     max-height: 90%;
-    border-radius: 0;  /* niente smussatura */
-    box-shadow: none;  /* niente ombra */
+    border: none;
+    outline: none;
 }
 `;
 
-// Inserisce il CSS nella pagina
+// Inserisce CSS nella pagina
 const style = document.createElement('style');
 style.textContent = css;
 document.head.appendChild(style);
