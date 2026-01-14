@@ -26,7 +26,8 @@ footer {
     font-size: 14px;
 }
 
-/* Griglia immagini con proporzioni naturali */
+
+/* Griglia fluida con immagini proporzionate individualmente */
 .image-grid {
     display: flex;
     flex-wrap: wrap;
@@ -34,8 +35,9 @@ footer {
 }
 
 .image-grid img {
-    max-width: 200px;      /* larghezza massima */
-    height: auto;           /* mantiene proporzioni */
+    height: auto;         /* mantiene proporzioni */
+    width: auto;          /* mantiene proporzioni */
+    max-width: 100%;      /* non esce dal contenitore */
     cursor: pointer;
     border: none;
     outline: none;
