@@ -26,26 +26,19 @@ footer {
     font-size: 14px;
 }
 
-/* Griglia con box piccoli */
+/* Griglia immagini */
 .image-grid {
     display: flex;
     flex-wrap: wrap;
-    gap: 15px;
+    gap: 20px;
 }
 
-.image-grid .image-item {
-    width: 150px;      /* box piccolo fisso */
-    height: 120px;     /* box piccolo fisso */
-    overflow: hidden;  /* taglia eventuale eccesso */
-}
-
-.image-grid .image-item img {
-    width: 20%;
-    object-fit: contain; /* mantiene proporzioni naturali */
+.image-grid img {
+    width: 180px;       /* dimensione fissa */
+    height: auto;
     cursor: pointer;
-    border: none;
-    outline: none;
-    display: block;
+    border: none;       /* rimuove bordi */
+    outline: none;      /* rimuove contorni */
 }
 
 /* Lightbox minimal */
@@ -65,8 +58,8 @@ footer {
 #lightbox img {
     max-width: 90%;
     max-height: 90%;
-    border: none;
-    outline: none;
+    border: none;       /* rimuove bordi */
+    outline: none;      /* rimuove contorni */
 }
 `;
 
