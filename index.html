@@ -1,110 +1,40 @@
 <!DOCTYPE html>
 <html lang="it">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Giuseppe Dicanio</title>
-  <style>
-    body {
-      margin: 0;
-      padding: 0;
-      background: #fff;
-      color: #000;
-      font-family: sans-serif;
-
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      align-items: center;
-
-      min-height: 100dvh; /* usa l'altezza visibile del viewport su mobile */
-    }
-
-    span, a {
-      color: #000;
-      text-decoration: none;
-      font-weight: normal;
-    }
-
-    a {
-      cursor: pointer;
-      transition: color 0.2s ease, text-decoration 0.2s ease;
-    }
-
-    a:hover {
-      color: blue;
-      text-decoration: underline;
-    }
-
-    .header {
-      font-size: 22px;
-      margin-top: 20px;
-      text-align: center;
-    }
-
-    .center-image {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 20px;
-      /* togli flex-grow per non spingere troppo il footer in basso */
-      justify-content: center;
-      padding: 20px 0; /* un po' di padding sopra e sotto */
-    }
-
-    .center-image img {
-      width: 250px;
-      height: 250px;
-      object-fit: cover;
-      cursor: pointer;
-      transition: 0.3s ease;
-    }
-
-    /* Hover per cambiare immagine */
-    .center-image a:hover img {
-      content: url('i/cow1.jpg');
-    }
-
-    .center-links {
-      display: flex;
-      gap: 40px;
-      font-size: 18px;
-    }
-
-    .footer {
-      font-size: 16px;
-      margin-bottom: 20px;
-      display: flex;
-      gap: 40px;
-    }
-
-    @media (max-width: 600px) {
-      .header { font-size: 28px; }
-      .center-links { font-size: 20px; gap: 20px; }
-      .footer { font-size: 14px; gap: 20px; }
-      .center-image img { width: 200px; height: 200px; }
-      .center-image { padding: 10px 0; }
-    }
-  </style>
+<meta charset="UTF-8">
+<title>Giuseppe Dicanio</title>
+<link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <div class="header">
-    <span>Giuseppe Dicanio</span>
-  </div>
 
-  <div class="center-image">
-    <a href="works.html">
-      <img src="i/cow.jpg" alt="works">
-    </a>
-    <div class="center-links">
-      <a href="about.html">about</a>
-      <a href="cv.html">cv</a>
-    </div>
-  </div>
 
-  <div class="footer">
-    <a href="https://instagram.com/giuseppe.dicanio" target="_blank">instagram</a>
-    <a href="mailto:giuseppedicanio2@gmail.com">email</a>
-  </div>
+<nav>
+<a href="photography.html">Photography</a>
+<a href="installations.html">Installations</a>
+<a href="video.html">Video</a>
+</nav>
+
+
+<h1>Giuseppe Dicanio</h1>
+<p>Visual artist</p>
+
+
+<h2>Bio</h2>
+<p>Giuseppe Dicanio (2005, Pomarico) studies at Accademia di Belle Arti di Roma with Prof. Pierluigi Calignano. ​He spent the winter semester of 2025/2026 at the Hochschule für Bildende Künste Hamburg (HFBK), studying Time-Based Media with Prof. Jeanne Faust.​​</p>
+
+
+<h2>Statement</h2>
+<p>My research unfolds the perception of everyday reality, space, and time through photography, multimedia works and installations, focusing on specific everyday subjects,objects, and actions.</p>
+
+
+<footer>
+<p>
+<a href="mailto:giuseppedicanio2@gmail.com">Email</a> ·
+<a href="https://instagram.com/giuseppe.dicanio" target="_blank">Instagram</a> ·
+<a href="https://youtube.com/@giuseppedicanio" target="_blank">YouTube</a>
+</p>
+</footer>
+
+
 </body>
 </html>
