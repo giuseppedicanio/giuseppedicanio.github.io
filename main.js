@@ -2,23 +2,28 @@
 const css = `
 body {
     margin: 50px;
-    font-family: "Arial", "Helvetica", sans-serif;
-    background: white;
-    color: black;
+    font-family: Arial, Helvetica, sans-serif;
+    background: white;  /* sfondo bianco */
+    color: black;       /* testo nero */
 }
 
 nav a {
-    margin-right: 25px;
-    text-decoration: none;
-    color: black;
+    margin-right: 25px; /* distanza tra i link del menu */
+    text-decoration: none; /* rimuove sottolineatura */
+    color: black;       /* colore link */
 }
 
 nav a:hover {
-    text-decoration: underline;
+    text-decoration: underline; /* sottolinea link quando ci passi sopra */
 }
 
-h1 {
-    margin-bottom: 30px;
+p {
+    max-width: 600px;
+}
+
+footer {
+    margin-top: 100px;
+    font-size: 14px;
 }
 
 /* Griglia immagini */
