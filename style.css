@@ -15,9 +15,8 @@ nav a:hover {
     text-decoration: underline; /* sottolinea link quando ci passi sopra */
 }
 
-img {
-    width: 20%;        /* immagini larghezza piena */
-    margin-bottom: 30px; /* spazio sotto le immagini */
+p {
+    max-width: 600px;
 }
 
 footer {
@@ -25,6 +24,15 @@ footer {
     font-size: 14px;
 }
 
-p {
-    max-width: 600px;
+/* Contenitore per le immagini a griglia */
+.image-grid {
+    display: flex;          /* layout flessibile */
+    flex-wrap: wrap;        /* va a capo se le immagini non ci stanno */
+    gap: 20px;              /* spazio tra le immagini */
+}
+
+.image-grid img {
+    width: calc(20% - 20px); /* larghezza immagini considerando gap */
+    height: auto;
+    margin-bottom: 0;        /* margine già gestito dal gap */
 }
