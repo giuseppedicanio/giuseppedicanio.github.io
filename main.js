@@ -1,32 +1,45 @@
-/* ===== CSS dinamico ===== */
+/* ===== CSS dinamico corretto ===== */
 const css = `
-/* MENU */
+body {
+    margin: 50px;
+    font-family: "Arial", "Helvetica", sans-serif;
+    background: white;
+    color: black;
+}
+
 nav a {
     margin-right: 25px;
     text-decoration: none;
     color: black;
 }
+
 nav a:hover {
     text-decoration: underline;
 }
 
-/* GRIGLIA IMMAGINI */
+h1 {
+    margin-bottom: 30px;
+}
+
+/* Griglia immagini */
 .image-grid {
     display: flex;
     flex-wrap: wrap;
     gap: 20px;
 }
+
 .image-grid img {
-    width: calc(20% - 20px);
-    cursor: pointer;
+    width: 180px; /* dimensione più realistica */
     height: auto;
+    cursor: pointer;
     transition: transform 0.2s;
 }
+
 .image-grid img:hover {
     transform: scale(1.05);
 }
 
-/* LIGHTBOX */
+/* Lightbox overlay */
 #lightbox {
     position: fixed;
     top: 0;
@@ -39,6 +52,7 @@ nav a:hover {
     justify-content: center;
     z-index: 1000;
 }
+
 #lightbox img {
     max-width: 90%;
     max-height: 90%;
@@ -47,15 +61,15 @@ nav a:hover {
 }
 `;
 
-// Crea e inserisce il CSS nella pagina
+// Inserisce il CSS nella pagina
 const style = document.createElement('style');
 style.textContent = css;
 document.head.appendChild(style);
 
-/* ===== JavaScript Lightbox ===== */
+/* ===== JS Lightbox dinamico ===== */
 let lightbox = document.getElementById('lightbox');
 
-// Se non esiste, crealo
+// Se non esiste, crea il div lightbox
 if (!lightbox) {
     lightbox = document.createElement('div');
     lightbox.id = 'lightbox';
@@ -67,6 +81,7 @@ if (!lightbox) {
 const lightboxImg = lightbox.querySelector('img');
 const images = document.querySelectorAll('.image-grid img');
 
+// Mostra immagine al clic
 images.forEach(img => {
     img.addEventListener('click', () => {
         lightbox.style.display = 'flex';
@@ -75,6 +90,7 @@ images.forEach(img => {
     });
 });
 
+// Chiudi lightbox cliccando fuori dall'immagine
 lightbox.addEventListener('click', e => {
     if (e.target !== lightboxImg) {
         lightbox.style.display = 'none';
