@@ -26,17 +26,23 @@ footer {
     font-size: 14px;
 }
 
-
-/* Griglia immagini piccole, proporzionate */
+/* Griglia con box piccoli */
 .image-grid {
     display: flex;
     flex-wrap: wrap;
-    gap: 15px;          /* spazio tra immagini */
+    gap: 15px;
 }
 
-.image-grid img {
-    height: 120px;       /* dimensione piccola */
-    width: auto;         /* mantiene proporzioni naturali */
+.image-grid .image-item {
+    width: 150px;      /* box piccolo fisso */
+    height: 120px;     /* box piccolo fisso */
+    overflow: hidden;  /* taglia eventuale eccesso */
+}
+
+.image-grid .image-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain; /* mantiene proporzioni naturali */
     cursor: pointer;
     border: none;
     outline: none;
