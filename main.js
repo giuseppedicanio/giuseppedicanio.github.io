@@ -40,8 +40,7 @@ footer {
 }
 
 .image-grid .image-item img {
-    width: 100%;
-    height: 100%;
+    width: 20%;
     object-fit: contain; /* mantiene proporzioni naturali */
     cursor: pointer;
     border: none;
