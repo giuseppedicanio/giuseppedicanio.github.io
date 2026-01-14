@@ -34,24 +34,20 @@ footer {
 }
 
 .image-grid img {
-    width: 180px; /* dimensione più realistica */
+    width: 180px; /* dimensione fissa e realistica */
     height: auto;
     cursor: pointer;
-    transition: transform 0.2s;
+    /* NIENTE hover scale */
 }
 
-.image-grid img:hover {
-    transform: scale(1.05);
-}
-
-/* Lightbox overlay */
+/* Lightbox minimal */
 #lightbox {
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(0,0,0,0.8);
+    background: rgba(0,0,0,0.85);
     display: none;
     align-items: center;
     justify-content: center;
@@ -61,8 +57,8 @@ footer {
 #lightbox img {
     max-width: 90%;
     max-height: 90%;
-    box-shadow: 0 0 20px black;
-    border-radius: 8px;
+    border-radius: 0;  /* niente smussatura */
+    box-shadow: none;  /* niente ombra */
 }
 `;
 
@@ -71,10 +67,8 @@ const style = document.createElement('style');
 style.textContent = css;
 document.head.appendChild(style);
 
-/* ===== JS Lightbox dinamico ===== */
+/* ===== JS Lightbox ===== */
 let lightbox = document.getElementById('lightbox');
-
-// Se non esiste, crea il div lightbox
 if (!lightbox) {
     lightbox = document.createElement('div');
     lightbox.id = 'lightbox';
@@ -86,7 +80,6 @@ if (!lightbox) {
 const lightboxImg = lightbox.querySelector('img');
 const images = document.querySelectorAll('.image-grid img');
 
-// Mostra immagine al clic
 images.forEach(img => {
     img.addEventListener('click', () => {
         lightbox.style.display = 'flex';
