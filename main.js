@@ -27,17 +27,16 @@ footer {
 }
 
 
-/* Griglia fluida con immagini proporzionate individualmente */
+/* Griglia immagini piccole, proporzionate */
 .image-grid {
     display: flex;
     flex-wrap: wrap;
-    gap: 20px;
+    gap: 15px;          /* spazio tra immagini */
 }
 
 .image-grid img {
-    height: auto;         /* mantiene proporzioni */
-    width: auto;          /* mantiene proporzioni */
-    max-width: 100%;      /* non esce dal contenitore */
+    height: 120px;       /* dimensione piccola */
+    width: auto;         /* mantiene proporzioni naturali */
     cursor: pointer;
     border: none;
     outline: none;
