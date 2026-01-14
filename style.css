@@ -1,0 +1,26 @@
+body {
+    margin: 50px;
+    font-family: Arial, Helvetica, sans-serif;
+    background: white;  /* sfondo bianco */
+    color: black;       /* testo nero */
+}
+
+nav a {
+    margin-right: 25px; /* distanza tra i link del menu */
+    text-decoration: none; /* rimuove sottolineatura */
+    color: black;       /* colore link */
+}
+
+nav a:hover {
+    text-decoration: underline; /* sottolinea link quando ci passi sopra */
+}
+
+img {
+    width: 100%;        /* immagini larghezza piena */
+    margin-bottom: 30px; /* spazio sotto le immagini */
+}
+
+footer {
+    margin-top: 100px;
+    font-size: 14px;
+}
