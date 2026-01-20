@@ -36,7 +36,7 @@ footer {
 /* contenitore immagine */
 .image-grid .img-wrap {
     width: auto;
-    height: 180px;
+    height: 100px;
     display: flex;
     align-items: center;
     justify-content: center;
