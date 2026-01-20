@@ -1,20 +1,20 @@
-/* ===== CSS dinamico corretto ===== */
+/* ===== CSS dinamico ===== */
 const css = `
 body {
     margin: 50px;
     font-family: Arial, Helvetica, sans-serif;
-    background: white;  /* sfondo bianco */
-    color: black;       /* testo nero */
+    background: white;
+    color: black;
 }
 
 nav a {
-    margin-right: 25px; /* distanza tra i link del menu */
-    text-decoration: none; /* rimuove sottolineatura */
-    color: black;       /* colore link */
+    margin-right: 25px;
+    text-decoration: none;
+    color: black;
 }
 
 nav a:hover {
-    text-decoration: underline; /* sottolinea link quando ci passi sopra */
+    text-decoration: underline;
 }
 
 p {
@@ -26,28 +26,36 @@ footer {
     font-size: 14px;
 }
 
-/* Griglia immagini */
+/* ===== Griglia immagini ===== */
 .image-grid {
     display: flex;
     flex-wrap: wrap;
     gap: 20px;
 }
 
-.image-grid img {
-    width: 180px;       /* dimensione fissa */
-    height: auto;
-    cursor: pointer;
-    border: none;       /* rimuove bordi */
-    outline: none;      /* rimuove contorni */
+/* contenitore immagine */
+.image-grid .img-wrap {
+    width: 180px;
+    height: 180px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
-/* Lightbox minimal */
+/* immagine */
+.image-grid img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;   /* <-- mantiene proporzioni */
+    cursor: pointer;
+    border: none;
+    outline: none;
+}
+
+/* ===== Lightbox ===== */
 #lightbox {
     position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
+    inset: 0;
     background: rgba(0,0,0,0.85);
     display: none;
     align-items: center;
@@ -58,40 +66,49 @@ footer {
 #lightbox img {
     max-width: 90%;
     max-height: 90%;
-    border: none;       /* rimuove bordi */
-    outline: none;      /* rimuove contorni */
+    object-fit: contain;
+    border: none;
+    outline: none;
 }
 `;
 
-// Inserisce CSS nella pagina
+// inserisce CSS
 const style = document.createElement('style');
 style.textContent = css;
 document.head.appendChild(style);
 
-/* ===== JS Lightbox ===== */
+/* ===== WRAP automatico immagini ===== */
+document.querySelectorAll('.image-grid img').forEach(img => {
+    const wrapper = document.createElement('div');
+    wrapper.className = 'img-wrap';
+    img.parentNode.insertBefore(wrapper, img);
+    wrapper.appendChild(img);
+});
+
+/* ===== Lightbox ===== */
 let lightbox = document.getElementById('lightbox');
+
 if (!lightbox) {
     lightbox = document.createElement('div');
     lightbox.id = 'lightbox';
-    const img = document.createElement('img');
-    lightbox.appendChild(img);
+    const lbImg = document.createElement('img');
+    lightbox.appendChild(lbImg);
     document.body.appendChild(lightbox);
 }
 
 const lightboxImg = lightbox.querySelector('img');
-const images = document.querySelectorAll('.image-grid img');
 
-images.forEach(img => {
+document.querySelectorAll('.image-grid img').forEach(img => {
     img.addEventListener('click', () => {
-        lightbox.style.display = 'flex';
         lightboxImg.src = img.src;
-        lightboxImg.alt = img.alt;
+        lightboxImg.alt = img.alt || '';
+        lightbox.style.display = 'flex';
     });
 });
 
-// Chiudi lightbox cliccando fuori dall'immagine
+// chiudi cliccando fuori
 lightbox.addEventListener('click', e => {
-    if (e.target !== lightboxImg) {
+    if (e.target === lightbox) {
         lightbox.style.display = 'none';
     }
 });
