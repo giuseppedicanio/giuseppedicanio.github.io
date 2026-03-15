@@ -46,7 +46,7 @@ footer {
 .image-grid img {
     max-width: 100%;
     max-height: 100%;
-    object-fit: contain;   /* <-- mantiene proporzioni */
+    object-fit: contain;
     cursor: pointer;
     border: none;
     outline: none;
@@ -111,4 +111,79 @@ lightbox.addEventListener('click', e => {
     if (e.target === lightbox) {
         lightbox.style.display = 'none';
     }
+});
+
+
+/* ===== AGGIUNTA: navigazione immagini ===== */
+
+const images = Array.from(document.querySelectorAll('.image-grid img'));
+let currentIndex = 0;
+
+// aggiorna indice quando apri immagine
+images.forEach((img, index) => {
+    img.addEventListener('click', () => {
+        currentIndex = index;
+    });
+});
+
+// funzione cambio immagine
+function showImage(index) {
+
+    if (index < 0) index = images.length - 1;
+    if (index >= images.length) index = 0;
+
+    currentIndex = index;
+    lightboxImg.src = images[currentIndex].src;
+}
+
+
+/* ===== frecce ===== */
+
+const prev = document.createElement("div");
+const next = document.createElement("div");
+
+prev.innerHTML = "←";
+next.innerHTML = "→";
+
+prev.style.position = "fixed";
+prev.style.left = "30px";
+prev.style.top = "50%";
+prev.style.transform = "translateY(-50%)";
+prev.style.fontSize = "40px";
+prev.style.color = "white";
+prev.style.cursor = "pointer";
+prev.style.userSelect = "none";
+
+next.style.position = "fixed";
+next.style.right = "30px";
+next.style.top = "50%";
+next.style.transform = "translateY(-50%)";
+next.style.fontSize = "40px";
+next.style.color = "white";
+next.style.cursor = "pointer";
+next.style.userSelect = "none";
+
+document.body.appendChild(prev);
+document.body.appendChild(next);
+
+prev.onclick = (e) => {
+    e.stopPropagation();
+    showImage(currentIndex - 1);
+};
+
+next.onclick = (e) => {
+    e.stopPropagation();
+    showImage(currentIndex + 1);
+};
+
+
+/* ===== tastiera ===== */
+
+document.addEventListener("keydown", (e) => {
+
+    if (lightbox.style.display !== "flex") return;
+
+    if (e.key === "ArrowRight") showImage(currentIndex + 1);
+    if (e.key === "ArrowLeft") showImage(currentIndex - 1);
+
 });
