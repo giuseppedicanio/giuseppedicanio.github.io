@@ -69,6 +69,33 @@ footer {
     object-fit: contain;
     border: none;
     outline: none;
+    transition: opacity 0.2s ease;
+}
+
+/* frecce */
+
+.lightbox-arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 50px;
+    color: white;
+    cursor: pointer;
+    user-select: none;
+    opacity: 0;
+    transition: opacity 0.2s;
+}
+
+#lightbox:hover .lightbox-arrow {
+    opacity: 1;
+}
+
+.lightbox-prev {
+    left: 40px;
+}
+
+.lightbox-next {
+    right: 40px;
 }
 `;
 
@@ -77,6 +104,7 @@ const style = document.createElement('style');
 style.textContent = css;
 document.head.appendChild(style);
 
+
 /* ===== WRAP automatico immagini ===== */
 document.querySelectorAll('.image-grid img').forEach(img => {
     const wrapper = document.createElement('div');
@@ -84,6 +112,7 @@ document.querySelectorAll('.image-grid img').forEach(img => {
     img.parentNode.insertBefore(wrapper, img);
     wrapper.appendChild(img);
 });
+
 
 /* ===== Lightbox ===== */
 let lightbox = document.getElementById('lightbox');
@@ -114,26 +143,31 @@ lightbox.addEventListener('click', e => {
 });
 
 
-/* ===== AGGIUNTA: navigazione immagini ===== */
+/* ===== Navigazione immagini ===== */
 
 const images = Array.from(document.querySelectorAll('.image-grid img'));
 let currentIndex = 0;
 
-// aggiorna indice quando apri immagine
 images.forEach((img, index) => {
     img.addEventListener('click', () => {
         currentIndex = index;
     });
 });
 
-// funzione cambio immagine
-function showImage(index) {
+function showImage(index){
 
-    if (index < 0) index = images.length - 1;
-    if (index >= images.length) index = 0;
+    if(index < 0) index = images.length - 1;
+    if(index >= images.length) index = 0;
 
     currentIndex = index;
-    lightboxImg.src = images[currentIndex].src;
+
+    /* animazione cambio */
+    lightboxImg.style.opacity = 0;
+
+    setTimeout(()=>{
+        lightboxImg.src = images[currentIndex].src;
+        lightboxImg.style.opacity = 1;
+    },120);
 }
 
 
@@ -142,36 +176,21 @@ function showImage(index) {
 const prev = document.createElement("div");
 const next = document.createElement("div");
 
+prev.className = "lightbox-arrow lightbox-prev";
+next.className = "lightbox-arrow lightbox-next";
+
 prev.innerHTML = "←";
 next.innerHTML = "→";
 
-prev.style.position = "fixed";
-prev.style.left = "30px";
-prev.style.top = "50%";
-prev.style.transform = "translateY(-50%)";
-prev.style.fontSize = "40px";
-prev.style.color = "white";
-prev.style.cursor = "pointer";
-prev.style.userSelect = "none";
+lightbox.appendChild(prev);
+lightbox.appendChild(next);
 
-next.style.position = "fixed";
-next.style.right = "30px";
-next.style.top = "50%";
-next.style.transform = "translateY(-50%)";
-next.style.fontSize = "40px";
-next.style.color = "white";
-next.style.cursor = "pointer";
-next.style.userSelect = "none";
-
-document.body.appendChild(prev);
-document.body.appendChild(next);
-
-prev.onclick = (e) => {
+prev.onclick = (e)=>{
     e.stopPropagation();
     showImage(currentIndex - 1);
 };
 
-next.onclick = (e) => {
+next.onclick = (e)=>{
     e.stopPropagation();
     showImage(currentIndex + 1);
 };
@@ -179,11 +198,37 @@ next.onclick = (e) => {
 
 /* ===== tastiera ===== */
 
-document.addEventListener("keydown", (e) => {
+document.addEventListener("keydown",(e)=>{
 
-    if (lightbox.style.display !== "flex") return;
+    if(lightbox.style.display !== "flex") return;
 
-    if (e.key === "ArrowRight") showImage(currentIndex + 1);
-    if (e.key === "ArrowLeft") showImage(currentIndex - 1);
+    if(e.key === "ArrowRight") showImage(currentIndex + 1);
+    if(e.key === "ArrowLeft") showImage(currentIndex - 1);
+
+});
+
+
+/* ===== swipe telefono ===== */
+
+let startX = 0;
+
+lightbox.addEventListener("touchstart",(e)=>{
+    startX = e.touches[0].clientX;
+});
+
+lightbox.addEventListener("touchend",(e)=>{
+
+    let endX = e.changedTouches[0].clientX;
+    let diff = startX - endX;
+
+    if(Math.abs(diff) > 50){
+
+        if(diff > 0){
+            showImage(currentIndex + 1);
+        }else{
+            showImage(currentIndex - 1);
+        }
+
+    }
 
 });
