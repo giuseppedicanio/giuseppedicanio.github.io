@@ -73,7 +73,6 @@ footer {
 }
 
 /* frecce */
-
 .lightbox-arrow {
     position: absolute;
     top: 50%;
@@ -90,36 +89,22 @@ footer {
     opacity: 1;
 }
 
-.lightbox-prev {
-    left: 40px;
-}
-
-.lightbox-next {
-    right: 40px;
-}
+.lightbox-prev { left: 40px; }
+.lightbox-next { right: 40px; }
 `;
 
-// inserisce CSS
 const style = document.createElement('style');
 style.textContent = css;
 document.head.appendChild(style);
 
 
-/* ===== WRAP automatico immagini ===== */
-document.querySelectorAll('.image-grid img').forEach(img => {
-    const wrapper = document.createElement('div');
-    wrapper.className = 'img-wrap';
-    img.parentNode.insertBefore(wrapper, img);
-    wrapper.appendChild(img);
-});
-
-
-/* ===== Lightbox ===== */
+/* ===== LIGHTBOX ===== */
 let lightbox = document.getElementById('lightbox');
 
 if (!lightbox) {
     lightbox = document.createElement('div');
     lightbox.id = 'lightbox';
+
     const lbImg = document.createElement('img');
     lightbox.appendChild(lbImg);
     document.body.appendChild(lightbox);
@@ -127,15 +112,67 @@ if (!lightbox) {
 
 const lightboxImg = lightbox.querySelector('img');
 
-document.querySelectorAll('.image-grid img').forEach(img => {
-    img.addEventListener('click', () => {
-        lightboxImg.src = img.src;
-        lightboxImg.alt = img.alt || '';
-        lightbox.style.display = 'flex';
+
+/* ===== GRIGLIA ===== */
+const grid = document.getElementById("grid");
+
+if (!grid) {
+    throw new Error("Manca <div id='grid' class='image-grid'></div> nell'HTML");
+}
+
+/* immagini da GitHub Actions */
+const imageFiles = window.IMAGES || [];
+
+/* stato */
+let images = [];
+let currentIndex = 0;
+
+/* crea griglia */
+imageFiles.forEach((file, index) => {
+
+    const wrapper = document.createElement("div");
+    wrapper.className = "img-wrap";
+
+    const img = document.createElement("img");
+    img.src = "./images/" + file;
+
+    wrapper.appendChild(img);
+    grid.appendChild(wrapper);
+
+    images.push(img);
+
+    img.addEventListener("click", () => {
+        currentIndex = index;
+        openLightbox();
     });
 });
 
-// chiudi cliccando fuori
+
+/* ===== LIGHTBOX LOGIC ===== */
+function openLightbox() {
+    lightbox.style.display = "flex";
+    showImage(currentIndex);
+}
+
+function showImage(index) {
+
+    if (images.length === 0) return;
+
+    if (index < 0) index = images.length - 1;
+    if (index >= images.length) index = 0;
+
+    currentIndex = index;
+
+    lightboxImg.style.opacity = 0;
+
+    setTimeout(() => {
+        lightboxImg.src = images[currentIndex].src;
+        lightboxImg.style.opacity = 1;
+    }, 120);
+}
+
+
+/* chiudi cliccando fuori */
 lightbox.addEventListener('click', e => {
     if (e.target === lightbox) {
         lightbox.style.display = 'none';
@@ -143,36 +180,7 @@ lightbox.addEventListener('click', e => {
 });
 
 
-/* ===== Navigazione immagini ===== */
-
-const images = Array.from(document.querySelectorAll('.image-grid img'));
-let currentIndex = 0;
-
-images.forEach((img, index) => {
-    img.addEventListener('click', () => {
-        currentIndex = index;
-    });
-});
-
-function showImage(index){
-
-    if(index < 0) index = images.length - 1;
-    if(index >= images.length) index = 0;
-
-    currentIndex = index;
-
-    /* animazione cambio */
-    lightboxImg.style.opacity = 0;
-
-    setTimeout(()=>{
-        lightboxImg.src = images[currentIndex].src;
-        lightboxImg.style.opacity = 1;
-    },120);
-}
-
-
-/* ===== frecce ===== */
-
+/* ===== FRECCE ===== */
 const prev = document.createElement("div");
 const next = document.createElement("div");
 
@@ -185,50 +193,43 @@ next.innerHTML = "→";
 lightbox.appendChild(prev);
 lightbox.appendChild(next);
 
-prev.onclick = (e)=>{
+prev.onclick = (e) => {
     e.stopPropagation();
     showImage(currentIndex - 1);
 };
 
-next.onclick = (e)=>{
+next.onclick = (e) => {
     e.stopPropagation();
     showImage(currentIndex + 1);
 };
 
 
-/* ===== tastiera ===== */
+/* ===== TASTIERA ===== */
+document.addEventListener("keydown", (e) => {
+    if (lightbox.style.display !== "flex") return;
 
-document.addEventListener("keydown",(e)=>{
-
-    if(lightbox.style.display !== "flex") return;
-
-    if(e.key === "ArrowRight") showImage(currentIndex + 1);
-    if(e.key === "ArrowLeft") showImage(currentIndex - 1);
-
+    if (e.key === "ArrowRight") showImage(currentIndex + 1);
+    if (e.key === "ArrowLeft") showImage(currentIndex - 1);
 });
 
 
-/* ===== swipe telefono ===== */
-
+/* ===== SWIPE MOBILE ===== */
 let startX = 0;
 
-lightbox.addEventListener("touchstart",(e)=>{
+lightbox.addEventListener("touchstart", (e) => {
     startX = e.touches[0].clientX;
 });
 
-lightbox.addEventListener("touchend",(e)=>{
+lightbox.addEventListener("touchend", (e) => {
 
     let endX = e.changedTouches[0].clientX;
     let diff = startX - endX;
 
-    if(Math.abs(diff) > 50){
-
-        if(diff > 0){
+    if (Math.abs(diff) > 50) {
+        if (diff > 0) {
             showImage(currentIndex + 1);
-        }else{
+        } else {
             showImage(currentIndex - 1);
         }
-
     }
-
 });
