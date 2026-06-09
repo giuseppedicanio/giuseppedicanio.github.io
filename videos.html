@@ -1,24 +1,193 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>Video – Giuseppe Dicanio</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Giuseppe Dicanio</title>
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    font-family: Arial, Helvetica, sans-serif;
+    background:#fff;
+    color:#111;
+}
+
+/* CONTAINER */
+.container{
+    width:min(1100px, calc(100vw - 60px));
+    margin:0 auto;
+    padding:100px 0;
+}
+
+/* TITOLO (BASE ASSOLUTO) */
+h1{
+    font-family: Arial, Helvetica, sans-serif;
+    font-size:clamp(2.5rem, 6vw, 5rem);
+    font-weight:400;
+    margin-bottom:30px;
+}
+
+/* TESTO */
+.bio{
+    max-width:60ch;
+    font-size:1rem;
+    line-height:1.8;
+}
+
+/* LINK */
+.links{
+    margin-top:25px;
+    display:flex;
+    gap:20px;
+    flex-wrap:wrap;
+}
+
+.links a{
+    color:#111;
+    text-decoration:none;
+    border-bottom:1px solid #111;
+}
+
+/* GRIGLIA INVISIBILE */
+.grid{
+    margin-top:100px;
+
+    display:grid;
+    grid-template-columns:repeat(auto-fit, minmax(250px, 1fr));
+    gap:10px;
+}
+
+.grid img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    cursor:pointer;
+}
+
+/* LIGHTBOX */
+.lightbox{
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    background:rgba(0,0,0,0.95);
+
+    display:none;
+    align-items:center;
+    justify-content:center;
+}
+
+.lightbox img{
+    max-width:90%;
+    max-height:90%;
+}
+
+.lightbox.active{
+    display:flex;
+}
+
+.nav{
+    position:absolute;
+    top:50%;
+    transform:translateY(-50%);
+    font-size:40px;
+    color:white;
+    cursor:pointer;
+    user-select:none;
+    padding:20px;
+}
+
+.prev{ left:10px; }
+.next{ right:10px; }
+
+.close{
+    position:absolute;
+    top:20px;
+    right:30px;
+    font-size:30px;
+    color:white;
+    cursor:pointer;
+}
+
+</style>
 </head>
+
 <body>
 
-<nav>
-    <a href="index.html">Home</a>
-    <a href="installations.html">Installations</a>
-    <a href="photos.html">Photos</a>
-</nav>
+<div class="container">
 
-<h1>Video</h1>
+    <h1>Giuseppe Dicanio</h1>
 
-<p>
-    Videos with short descriptions on
-    <a href="https://www.youtube.com/@giuseppedicanio" target="_blank">YouTube</a>
-</p>
+    <p class="bio">
+        Giuseppe Dicanio (2005, Pomarico) currently attends at Accademia di Belle Arti di Roma with Prof. Pierluigi Calignano. He spent the winter semester of 2025/2026 at the Hochschule für Bildende Künste Hamburg (HFBK), studying Time-Based Media with Prof. Jeanne Faust.​​
+    </p>
 
-<script src="main.js" defer></script>
+    <div class="links">
+        <a href="mailto:giuseppedicanio2@email.it">Email</a>
+        <a href="https://instagram.com/giuseppe.dicanio" target="_blank">Instagram</a>
+        <a href="https://youtube.com/@GiuseppeDicanio" target="_blank">YouTube</a>
+    </div>
+
+    <div class="grid">
+        <img src="images/work01.jpg" onclick="openLightbox(0)">
+        <img src="images/work02.jpg" onclick="openLightbox(1)">
+        <img src="images/work03.jpg" onclick="openLightbox(2)">
+        <img src="images/work04.jpg" onclick="openLightbox(3)">
+    </div>
+
+</div>
+
+<!-- LIGHTBOX -->
+<div class="lightbox" id="lightbox">
+    <div class="close" onclick="closeLightbox()">×</div>
+    <div class="nav prev" onclick="change(-1)">‹</div>
+    <img id="lightbox-img">
+    <div class="nav next" onclick="change(1)">›</div>
+</div>
+
+<script>
+
+const images = [
+    "images/work01.jpg",
+    "images/work02.jpg",
+    "images/work03.jpg",
+    "images/work04.jpg"
+];
+
+let current = 0;
+
+function openLightbox(index){
+    current = index;
+    document.getElementById("lightbox").classList.add("active");
+    document.getElementById("lightbox-img").src = images[current];
+}
+
+function closeLightbox(){
+    document.getElementById("lightbox").classList.remove("active");
+}
+
+function change(step){
+    current += step;
+
+    if(current < 0) current = images.length - 1;
+    if(current >= images.length) current = 0;
+
+    document.getElementById("lightbox-img").src = images[current];
+}
+
+document.getElementById("lightbox").addEventListener("click", function(e){
+    if(e.target === this) closeLightbox();
+});
+
+</script>
+
 </body>
 </html>
