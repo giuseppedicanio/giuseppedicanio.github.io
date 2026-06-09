@@ -1,0 +1,36 @@
+name: Generate images list
+
+on:
+  push:
+    paths:
+      - "images/**"
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Generate JS file
+        run: |
+          mkdir -p data
+          ls images | grep -E '\.(jpg|jpeg|png|webp)$' > list.txt
+
+          node -e "
+          const fs = require('fs');
+          const list = fs.readFileSync('list.txt','utf8')
+            .split('\n')
+            .filter(Boolean);
+
+          const output = 'window.IMAGES = ' + JSON.stringify(list, null, 2) + ';';
+          fs.writeFileSync('data/images.js', output);
+          "
+
+      - name: Commit
+        run: |
+          git config user.name github-actions
+          git config user.email github-actions@github.com
+          git add data/images.js
+          git commit -m "auto update images" || echo "no changes"
+          git push
