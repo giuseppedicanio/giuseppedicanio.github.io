@@ -33,20 +33,22 @@ footer {
     gap: 10px;
 }
 
-/* contenitore immagine */
+/* contenitore immagine - QUADRATO */
 .image-grid .img-wrap {
-    width: auto;
+    width: 140px;
     height: 140px;
     display: flex;
     align-items: center;
     justify-content: center;
+    overflow: hidden;
+    flex-shrink: 0;
 }
 
-/* immagine */
+/* immagine - RITAGLIATA */
 .image-grid img {
-    max-width: 100%;
-    max-height: 100%;
-    object-fit: contain;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
     cursor: pointer;
     border: none;
     outline: none;
