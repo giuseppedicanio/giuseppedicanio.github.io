@@ -22,7 +22,7 @@ p {
 }
 
 footer {
-    margin-top: 50px;
+    margin-top: 10px;
     font-size: 14px;
 }
 
