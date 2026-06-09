@@ -19,10 +19,10 @@ nav a:hover {
 
 p {
     max-width: 600px;
+    margin-bottom: 40px;
 }
 
 footer {
-    margin-top: 10px;
     font-size: 14px;
 }
 
