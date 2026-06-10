@@ -79,20 +79,24 @@ footer {
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
-    font-size: 50px;
+    font-size: 20px;
     color: white;
     cursor: pointer;
     user-select: none;
-    opacity: 0;
+    opacity: 0.4;
     transition: opacity 0.2s;
 }
 
 #lightbox:hover .lightbox-arrow {
+    opacity: 0.7;
+}
+
+.lightbox-arrow:hover {
     opacity: 1;
 }
 
-.lightbox-prev { left: 40px; }
-.lightbox-next { right: 40px; }
+.lightbox-prev { left: 20px; }
+.lightbox-next { right: 20px; }
 `;
 
 const style = document.createElement('style');
@@ -184,8 +188,8 @@ const next = document.createElement("div");
 prev.className = "lightbox-arrow lightbox-prev";
 next.className = "lightbox-arrow lightbox-next";
 
-prev.innerHTML = "←";
-next.innerHTML = "→";
+prev.innerHTML = "‹";
+next.innerHTML = "›";
 
 lightbox.appendChild(prev);
 lightbox.appendChild(next);
