@@ -71,7 +71,7 @@ footer {
     object-fit: contain;
     border: none;
     outline: none;
-    transition: opacity 0.2s ease;
+    transition: none;
 }
 
 /* frecce */
@@ -165,12 +165,7 @@ function showImage(index) {
 
     currentIndex = index;
 
-    lightboxImg.style.opacity = 0;
-
-    setTimeout(() => {
-        lightboxImg.src = images[currentIndex].src;
-        lightboxImg.style.opacity = 1;
-    }, 120);
+    lightboxImg.src = images[currentIndex].src;
 }
 
 
