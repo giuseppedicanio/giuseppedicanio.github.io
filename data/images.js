@@ -1,5 +1,4 @@
 window.IMAGES = [
-  "IMG_2485.jpeg",
   "IMG_2505.jpeg",
   "IMG_2508.jpeg",
   "IMG_2511.jpeg",
