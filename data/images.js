@@ -4,5 +4,6 @@ window.IMAGES = [
   "3.png",
   "IMG_2511.jpeg",
   "IMG_2526.jpeg",
+  "maglietta.jpg",
   "screenshot.png"
 ]
