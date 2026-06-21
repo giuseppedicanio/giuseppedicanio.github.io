@@ -14,22 +14,50 @@ jobs:
 
     steps:
       - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
 
-      - name: Generate images.js
+      - name: Generate images.js sorted by date
         run: |
           mkdir -p data
-          ls images | grep -E '\.(jpg|jpeg|png|webp)$' > list.txt
-
+          
           node -e "
           const fs = require('fs');
-          const list = fs.readFileSync('list.txt','utf8')
-            .split('\n')
-            .filter(Boolean);
-
+          const { execSync } = require('child_process');
+          
+          // Leggi tutti i file immagini
+          const files = fs.readdirSync('images')
+            .filter(f => /\.(jpg|jpeg|png|webp)$/i.test(f));
+          
+          // Ottieni la data di commit per ogni file
+          const filesWithDate = files.map(file => {
+            try {
+              const timestamp = execSync(
+                \`git log -1 --format=%ct -- images/\${file}\`
+              ).toString().trim();
+              return {
+                name: file,
+                timestamp: parseInt(timestamp) || 0
+              };
+            } catch (e) {
+              return { name: file, timestamp: 0 };
+            }
+          });
+          
+          // Ordina per data (dal più recente al più vecchio)
+          filesWithDate.sort((a, b) => b.timestamp - a.timestamp);
+          
+          // Estrai solo i nomi
+          const sortedNames = filesWithDate.map(f => f.name);
+          
+          // Salva in data/images.js
           fs.writeFileSync(
             'data/images.js',
-            'window.IMAGES = ' + JSON.stringify(list, null, 2)
+            'window.IMAGES = ' + JSON.stringify(sortedNames, null, 2)
           );
+          
+          console.log('Immagini ordinate per data:');
+          sortedNames.forEach(name => console.log('  ' + name));
           "
 
       - name: Commit changes
