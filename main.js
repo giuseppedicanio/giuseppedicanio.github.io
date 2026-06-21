@@ -28,21 +28,21 @@ footer {
 
 /* ===== Griglia immagini ===== */
 .image-grid {
-    display: flex;
-    flex-wrap: wrap;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
     gap: 10px;
-    justify-content: center; /* centratura orizzontale della griglia */
+    width: 100%;
+    box-sizing: border-box; /* occupa tutta la larghezza disponibile */
 }
 
 /* contenitore immagine - QUADRATO */
 .image-grid .img-wrap {
-    width: 220px;
-    height: 220px;
+    width: 100%;
+    aspect-ratio: 1 / 1; /* mantiene la forma quadrata */
     display: flex;
     align-items: center;
     justify-content: center;
     overflow: hidden;
-    flex-shrink: 0;
 }
 
 /* immagine - RITAGLIATA */
