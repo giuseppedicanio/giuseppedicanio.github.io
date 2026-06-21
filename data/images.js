@@ -7,7 +7,6 @@ window.IMAGES = [
   "5.jpg",
   "6.jpg",
   "7.jpg",
-  "8.jpg",
   "9.jpg",
   "IMG_2511.jpeg",
   "IMG_2526.jpeg",
