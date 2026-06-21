@@ -35,8 +35,8 @@ footer {
 
 /* contenitore immagine - QUADRATO */
 .image-grid .img-wrap {
-    width: 140px;
-    height: 140px;
+    width: 220px;
+    height: 220px;
     display: flex;
     align-items: center;
     justify-content: center;
