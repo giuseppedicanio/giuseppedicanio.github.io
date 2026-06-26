@@ -14,5 +14,6 @@ window.IMAGES = [
   "2.png",
   "screenshot.png",
   "IMG_2511.jpeg",
-  "IMG_2526.jpeg"
+  "IMG_2526.jpeg",
+  "giulio agricola.png"
 ]
