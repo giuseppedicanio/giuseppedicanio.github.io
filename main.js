@@ -5,6 +5,7 @@ body {
     font-family: Arial, Helvetica, sans-serif;
     background: white;
     color: black;
+    text-align: center;
 }
 
 nav a {
@@ -19,7 +20,8 @@ nav a:hover {
 
 p {
     max-width: 600px;
-    margin-bottom: 40px;
+    margin: 0 auto 40px;
+    text-align: center;
 }
 
 footer {
