@@ -15,5 +15,6 @@ window.IMAGES = [
   "2.png",
   "screenshot.png",
   "IMG_2511.jpeg",
-  "IMG_2526.jpeg"
+  "IMG_2526.jpeg",
+  "Screenshot 2026-08-01 alle 21.04.11.png"
 ]
