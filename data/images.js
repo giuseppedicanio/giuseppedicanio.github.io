@@ -1,4 +1,5 @@
 window.IMAGES = [
+  "screenshot.png",
   "IMG_2145.png",
   "IMG_21452.png",
   "IMG00039.png",
@@ -21,7 +22,6 @@ window.IMAGES = [
   "maglietta.jpg",
   "1.png",
   "2.png",
-  "screenshot.png",
   "IMG_2511.jpeg",
   "IMG_2526.jpeg"
 ]
