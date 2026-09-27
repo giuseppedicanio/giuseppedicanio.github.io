@@ -2,7 +2,6 @@ window.IMAGES = [
   "screenshot.png",
   "IMG_2145.png",
   "IMG_21452.png",
-  "IMG00039.png",
   "IMG00026.png",
   "35x1009.png",
   "uccelloblu.png",
