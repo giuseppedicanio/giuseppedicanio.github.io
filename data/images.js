@@ -1,4 +1,5 @@
 window.IMAGES = [
+  "room.png",
   "screenshot.png",
   "IMG_2145.png",
   "IMG_21452.png",
