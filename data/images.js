@@ -3,7 +3,6 @@ window.IMAGES = [
   "screenshot.png",
   "IMG_21452.png",
   "IMG00026.png",
-  "35x1009.png",
   "facciate.jpg",
   "Screenshot2026-08-01.png",
   "giulioagricola.png",
