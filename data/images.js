@@ -2,7 +2,6 @@ window.IMAGES = [
   "room.png",
   "screenshot.png",
   "IMG_21452.png",
-  "IMG00026.png",
   "facciate.jpg",
   "Screenshot2026-08-01.png",
   "giulioagricola.png",
