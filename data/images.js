@@ -1,4 +1,5 @@
 window.IMAGES = [
+  "nfs.jpg",
   "foto34.jpg",
   "IMG_20261104_180446870.jpg",
   "room.png",
